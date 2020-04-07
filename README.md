@@ -5,6 +5,9 @@
 This repository contains a cookiecutter template that can be used for library development. 
 Build, install and tests of the library are run by docs, the documentation is built with sphinx (but also through tox).
 
+In the documentation links to source code will be created, therefore you will be prompted to give the project url. It 
+will typically be of the form `https://<host>/<postfix>`
+
 
 There is a helper script for updating documentation files automatically, it can be invoked as
 ```bash
