@@ -1,5 +1,8 @@
 image: "python:3.7-stretch"
 
+variables:
+  GIT_SSL_NO_VERIFY: "true"
+
 tox:
   stage: "test"
   script:
