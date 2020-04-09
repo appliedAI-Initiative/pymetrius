@@ -7,7 +7,7 @@ log = logging.getLogger(os.path.basename(__file__))
 
 def module_template(module_path: str):
     title = os.path.basename(module_path).replace("_", r'\_')
-    title = title[:-3] # removing trailing .py
+    title = title[:-3]  # removing trailing .py
     module_path = module_path[:-3]
     template = \
         f"""{title}
@@ -20,14 +20,14 @@ def module_template(module_path: str):
     return template
 
 
-def package_template(packagePath: str):
-    package_name = os.path.basename(packagePath)
+def package_template(package_path: str):
+    package_name = os.path.basename(package_path)
     title = package_name.replace("_", r'\_')
     template = \
         f"""{title}
 {"="*len(title)}
 
-.. automodule:: {packagePath.replace(os.path.sep, ".")}
+.. automodule:: {package_path.replace(os.path.sep, ".")}
    :members:
    :undoc-members:
 
@@ -37,6 +37,12 @@ def package_template(packagePath: str):
    {package_name}/*
 """
     return template
+
+
+def write_to_file(content: str, path: str):
+    with open(path, "w") as f:
+        f.write(content)
+    os.chmod(path, 0o777)
 
 
 def make_docu(basedir=os.path.join("src", "{{cookiecutter.project_name}}"), overwrite=False):
@@ -70,12 +76,10 @@ def make_docu(basedir=os.path.join("src", "{{cookiecutter.project_name}}"), over
 
         if ext == ".py":
             log.info(f"writing module docu to {docs_file_path}")
-            with open(docs_file_path, "w") as f:
-                f.write(module_template(library_file_path))
+            write_to_file(module_template(library_file_path), docs_file_path)
         elif os.path.isdir(full_path):
             log.info(f"writing package docu to {docs_file_path}")
-            with open(docs_file_path, "w") as f:
-                f.write(package_template(library_file_path))
+            write_to_file(package_template(library_file_path), docs_file_path)
             make_docu(basedir=full_path, overwrite=overwrite)
 
 
