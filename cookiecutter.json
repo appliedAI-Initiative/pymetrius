@@ -1,7 +1,10 @@
 {
   "project_name": null,
   "package_name": null,
-  "project_url": null,
   "author": null,
+  "python_version": ["3.7", "3.8"],
+  "host_url": "https://github.com/<organization>",
+  "cicd_provider": ["github", "gitlab", "azure-devops", "None"],
+  "include_readthedocs_yaml": ["Y", "n"],
   "initial_version": "0.1.0"
 }

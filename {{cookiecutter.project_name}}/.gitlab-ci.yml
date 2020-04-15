@@ -1,4 +1,4 @@
-image: "python:3.7-stretch"
+image: "python:{{cookiecutter.python_version}}-buster"
 
 variables:
   GIT_SSL_NO_VERIFY: "true"

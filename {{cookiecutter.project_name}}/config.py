@@ -71,6 +71,10 @@ class __Configuration:
                 raise FileNotFoundError(f"Configured directory {key}='{path}' does not exist.")
         return path.replace("/", os.sep)
 
+    @property
+    def sample_key(self):
+        return self._get_non_empty_entry("sample_key")
+
 
 def get_config(reload=False) -> __Configuration:
     """

@@ -1,7 +1,7 @@
 Getting started
 ===============
 
-This library works with python>=3.7. Install it by executing \n
+This library works with python>={{cookiecutter.python_version}}. Install it by executing \n
 ``python setup.py install`` \n
 from the root directory.
 

@@ -18,10 +18,10 @@ jobs:
         run: |
           git fetch origin master:master --update-head-ok
           git merge master
-      - name: Setup Python 3.7
+      - name: Setup Python {{cookiecutter.python_version}}
         uses: actions/setup-python@v1
         with:
-          python-version: "3.7"
+          python-version: {{cookiecutter.python_version}}
       - name: Install Tox and any other packages
         run: pip install tox
       - name: Run Tox

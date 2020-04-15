@@ -30,10 +30,10 @@ print(sys.path)
 extensions = ['sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.doctest', 'sphinx.ext.linkcode', 'sphinx_rtd_theme']
 
 
-# adding links to source files
+# adding links to source files (this works for gitlab and github like hosts and might need to be adjusted for others)
 # see https://www.sphinx-doc.org/en/master/usage/extensions/linkcode.html#module-sphinx.ext.linkcode
 def linkcode_resolve(domain, info):
-    link_prefix = "{{cookiecutter.project_url}}/{{cookiecutter.project_name}}/blob/master"
+    link_prefix = "{{cookiecutter.host_url}}/{{cookiecutter.project_name}}/blob/master"
     if domain != 'py':
         return None
     if not info['module']:
