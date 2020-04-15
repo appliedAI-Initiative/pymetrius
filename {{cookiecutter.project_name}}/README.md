@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 ### Testing and packaging
 The library is tested with tox which will build and install the package and run pytest and doctest. 
-You can run it locally by installing tox into you virtual environment 
+You can run it locally by installing tox into your virtual environment 
 (e.g. with `pip install tox`) and executing `tox`. 
 
 For creating a package locally run
@@ -37,15 +37,15 @@ python scripts/update_docs.py
 ```
 See the code documentation in the script for more details on that
 
-## Configuration
-The repository also includes configuration utilities that are often useful when using data-related libraries. 
-They do not form part of the resulting package, you can (and probably should) adjust them to your needs.
-
-## CI/CD
-Depending on the provider you chose for CICD, this repo might already contain a rudimentary CI/CD pipeline. 
-The pipelines serve for building and testing the library and for publishing the resulting package and documentation.
-You will probably have to further adjust it to your needs.
-
 ### Note
 You might wonder why the requirements.txt already contains numpy. The reason is that tox seems to have a problem with empty
 requirements files. Feel free to remove numpy once you have non-trivial requirements
+
+## Configuration Management
+The repository also includes configuration utilities that are often helpful when using data-related libraries. 
+They do not form part of the resulting package, you can (and probably should) adjust them to your needs.
+
+## CI/CD
+Depending on the provider you chose for CI/CD, this repo might already contain a rudimentary CI/CD pipeline. 
+The pipelines serve for building and testing the library and for publishing the resulting package and documentation.
+You will probably have to further adjust it to your needs.
