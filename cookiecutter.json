@@ -1,7 +1,7 @@
 {
   "project_name": null,
-  "package_name": null,
   "author": null,
+  "package_name": "{{cookiecutter.project_name}}",
   "python_version": ["3.7", "3.8"],
   "host_url": "https://github.com/<organization>",
   "cicd_provider": ["github", "gitlab", "azure-devops", "None"],
