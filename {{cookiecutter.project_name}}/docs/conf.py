@@ -87,7 +87,6 @@ autodoc_mock_imports = []
 autodoc_default_options = {
     'exclude-members': 'log',
     'member-order': 'bysource',
-    'special-members': '__init__',
     'show-inheritance': True
 }
 

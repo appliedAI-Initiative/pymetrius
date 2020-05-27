@@ -1,7 +1,11 @@
 # {{cookiecutter.project_name}}
 
-This repository contains a library template with utilities for building, testing, documentation 
-and configuration management.
+This repository contains the {{cookiecutter.project_name}} python library together with utilities for building, testing, 
+documentation and configuration management. The library can be installed locally by running
+
+```python setup.py install```
+
+from the root directory.
 
 ## Workflow
 Automated builds, tests, generation of docu and publishing should be handled by cicd pipelines. 
@@ -49,3 +53,9 @@ They do not form part of the resulting package, you can (and probably should) ad
 Depending on the provider you chose for CI/CD, this repo might already contain a rudimentary CI/CD pipeline. 
 The pipelines serve for building and testing the library and for publishing the resulting package and documentation.
 You will probably have to further adjust it to your needs.
+
+## Useful information
+Mark all unused directories as excluded in your IDE. In particular docs and .tox should be marked as excluded
+in order to get a significant speedup in searches and refactorings.
+
+If using remote execution, don't forget to exclude data paths from deployment (unless you really want to sync them)

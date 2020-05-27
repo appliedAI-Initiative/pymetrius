@@ -1,16 +1,17 @@
 image: "python:{{cookiecutter.python_version}}-buster"
 
-variables:
-  GIT_SSL_NO_VERIFY: "true"
+stages:
+  - tox
+  - package
 
 tox:
-  stage: "test"
+  stage: tox
   script:
     - pip install tox
     - tox
 
 package:
-  stage: "package"
+  stage: package
   script:
     - pip install setuptools wheel
     - python setup.py sdist bdist_wheel

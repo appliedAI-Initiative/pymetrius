@@ -1,9 +1,7 @@
 Getting started
 ===============
 
-This library works with python>={{cookiecutter.python_version}}. Install it by executing \n
-``python setup.py install`` \n
-from the root directory.
+Welcome to the {{cookiecutter.project_name}} library.
+See the project's repository_  for more information.
 
-For developing the usage of tox is encouraged. Run ``tox`` from the root directory in order to build the package,
-these docs and perform several tests. You should not merge to master without tox having executed successfully!
+.. _repository: {{cookiecutter.host_url}}/{{cookiecutter.project_name}}
