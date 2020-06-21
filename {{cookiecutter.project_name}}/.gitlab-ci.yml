@@ -3,12 +3,16 @@ image: "python:{{cookiecutter.python_version}}-buster"
 stages:
   - tox
   - package
+  - pages
 
 tox:
   stage: tox
   script:
     - pip install tox
     - tox
+  artifacts:
+    paths:
+      - docs/_build
 
 package:
   stage: package
@@ -19,4 +23,15 @@ package:
     paths:
       - dist/*.whl
 
-
+pages:
+  stage: pages
+  dependencies:
+    - tox
+  script:
+    - mkdir -p public
+    - mv docs/_build/html/* public
+  artifacts:
+    paths:
+    - public
+  only:
+    - develop
