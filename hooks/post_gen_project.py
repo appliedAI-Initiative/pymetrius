@@ -16,8 +16,8 @@ cicd_providers = {
 
 selected_cicd_provider = '{{cookiecutter.cicd_provider}}'
 cicd_providers.pop(selected_cicd_provider, None)
-for non_selected_cicd_provider in cicd_providers.keys():
-    remove(non_selected_cicd_provider)
+for non_selected_cicd_provider, file in cicd_providers.items():
+    remove(file)
 
 if "{{cookiecutter.include_readthedocs_yaml}}" == "n":
     remove(".readthedocs.yaml")
