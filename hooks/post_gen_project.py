@@ -8,6 +8,7 @@ def remove(filepath):
     elif os.path.isdir(filepath):
         shutil.rmtree(filepath)
 
+
 cicd_providers = {
     "gitlab": ".gitlab-ci.yml",
     "azure": "azure-pipelines.yml",
@@ -23,9 +24,12 @@ if "{{cookiecutter.include_readthedocs_yaml}}" == "n":
     remove(".readthedocs.yaml")
 
 
-return_code = os.system("""git init
-python scripts/update_docs.py
+return_code = os.system("""
+git init
 git add .gitignore && git commit -m "Added gitignore"
 git add . && git commit -m "Initial commit of python_library_template"
+echo "Your repository was created, running the build pipeline"
+tox
+echo "Build finished successfully! Coverage and pylint badges were generated during it."
 python scripts/run_sample.py
 """)
