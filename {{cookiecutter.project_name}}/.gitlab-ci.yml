@@ -30,8 +30,9 @@ pages:
   dependencies:
     - tox
   script:
-    - mkdir -p public
-    - mv docs/_build/html/* public
+    - mv docs/_build/html/* public/docs
+    - mv pylint.html public/pylint/index.html
+    - mv htmlcov/* public/coverage
   artifacts:
     paths:
     - public
