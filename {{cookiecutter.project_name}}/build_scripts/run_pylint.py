@@ -11,7 +11,7 @@ badge_thresholds = {
     9: 'green'
 }
 
-results = Run(["src", "--rcfile=tox.ini", "--max-line-length=120"], exit=False)
+results = Run(["src", "--max-line-length=120"], exit=False)
 
 score = results.linter.stats['global_note']
 # NOTE: we need to do this ourselves instead of using the --fail-under flag, since we want the badge

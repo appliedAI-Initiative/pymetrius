@@ -1,0 +1,9 @@
+[MESSAGE CONTROL]
+disable =
+    I0011 # reasoning
+
+[MASTER]
+load-plugins=pylint_json2html
+
+[REPORTS]
+output-format=jsonextended
