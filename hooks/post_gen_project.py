@@ -15,7 +15,6 @@ if "{{cookiecutter.include_readthedocs_yaml}}" != "y":
 
 return_code = os.system("""
 git init
-git add .gitignore && git commit -m "Added gitignore"
 git add . && git commit -m "Initial commit of python_library_template"
 echo "Repository initialized in $(pwd)"
 python scripts/run_sample.py
