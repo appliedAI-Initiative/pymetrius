@@ -9,18 +9,7 @@ def remove(filepath):
         shutil.rmtree(filepath)
 
 
-cicd_providers = {
-    "gitlab": ".gitlab-ci.yml",
-    "azure": "azure-pipelines.yml",
-    "github": ".github"
-}
-
-selected_cicd_provider = '{{cookiecutter.cicd_provider}}'
-cicd_providers.pop(selected_cicd_provider, None)
-for non_selected_cicd_provider in cicd_providers.values():
-    remove(non_selected_cicd_provider)
-
-if "{{cookiecutter.include_readthedocs_yaml}}" == "n":
+if "{{cookiecutter.include_readthedocs_yaml}}" != "y":
     remove(".readthedocs.yaml")
 
 
