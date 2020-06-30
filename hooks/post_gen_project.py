@@ -17,6 +17,6 @@ return_code = os.system("""
 git init
 git add .gitignore && git commit -m "Added gitignore"
 git add . && git commit -m "Initial commit of python_library_template"
-echo "Your repository was created in $(pwd). You can run your first build with tox"
+echo "Repository initialized in $(pwd)"
 python scripts/run_sample.py
 """)

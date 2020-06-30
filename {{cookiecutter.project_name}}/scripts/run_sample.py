@@ -9,4 +9,5 @@ if __name__ == "__main__":
     c = get_config()
     assert c.sample_key == "sample_value"
     print(SampleClass().sample_method("{{cookiecutter.author}}"))
-    print("Your library project {{cookiecutter.project_name}} is done waiting for you!")
+    print("Your new library project {{cookiecutter.project_name}} is waiting for you!")
+    print("Try running your first build with tox")

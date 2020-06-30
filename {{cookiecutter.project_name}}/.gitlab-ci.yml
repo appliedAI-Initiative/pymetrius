@@ -4,7 +4,7 @@ stages:
   - tox
   - publish
 
- tox:
+tox:
   stage: tox
   script:
     - pip install tox
