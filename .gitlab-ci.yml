@@ -1,0 +1,7 @@
+image: "python:3.8-buster"
+
+inttest:
+  stage: test
+  script:
+    - pip install cookiecutter
+    - tests/integration_test.sh
