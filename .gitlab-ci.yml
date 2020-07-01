@@ -3,5 +3,7 @@ image: "python:3.8-buster"
 inttest:
   stage: test
   script:
-    - pip install cookiecutter
+    - pip install cookiecutter tox
+    - git config --global user.email automated@gitlab.com
+    - git config --global user.name "automated_user"
     - tests/integration_test.sh
