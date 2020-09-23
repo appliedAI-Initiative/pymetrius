@@ -1,2 +1,2 @@
 [run]
-source = src
+source = src/{{cookiecutter.project_name}}

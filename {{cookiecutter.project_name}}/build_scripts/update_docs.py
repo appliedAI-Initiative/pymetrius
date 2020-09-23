@@ -6,11 +6,10 @@ log = logging.getLogger(os.path.basename(__file__))
 
 
 def module_template(module_path: str):
-    title = os.path.basename(module_path).replace("_", r'\_')
+    title = os.path.basename(module_path).replace("_", r"\_")
     title = title[:-3]  # removing trailing .py
     module_path = module_path[:-3]
-    template = \
-        f"""{title}
+    template = f"""{title}
 {"="*len(title)}
 
 .. automodule:: {module_path.replace(os.path.sep, ".")}
@@ -22,9 +21,8 @@ def module_template(module_path: str):
 
 def package_template(package_path: str):
     package_name = os.path.basename(package_path)
-    title = package_name.replace("_", r'\_')
-    template = \
-        f"""{title}
+    title = package_name.replace("_", r"\_")
+    template = f"""{title}
 {"="*len(title)}
 
 .. automodule:: {package_path.replace(os.path.sep, ".")}
@@ -45,7 +43,9 @@ def write_to_file(content: str, path: str):
     os.chmod(path, 0o777)
 
 
-def make_docu(basedir=os.path.join("src", "{{cookiecutter.project_name}}"), overwrite=False):
+def make_docu(
+    basedir=os.path.join("src", "{{cookiecutter.project_name}}"), overwrite=False
+):
     """
     Creates/updates documentation in form of rst files for modules and packages.
     Does not delete any existing rst files. Thus, rst files for packages or modules that have been removed or renamed
