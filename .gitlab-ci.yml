@@ -1,8 +1,16 @@
 image: "python:3.8-buster"
 
+cache:
+  paths:
+    - apt-cache
+  key: ${CI_COMMIT_REF_SLUG}
+
 inttest:
   stage: test
   script:
+    - mkdir -p apt-cache
+  # pandoc needed for docu, see https://nbsphinx.readthedocs.io/en/0.7.1/installation.html?highlight=pandoc#pandoc
+    - apt-get update -yq && apt-get -o dir::cache::archives="$(pwd)/apt-cache" install -yq pandoc
     - pip install cookiecutter tox
     - git config --global user.email automated@gitlab.com
     - git config --global user.name "automated_user"
