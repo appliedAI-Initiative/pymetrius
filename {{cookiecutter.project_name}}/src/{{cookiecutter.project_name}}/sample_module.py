@@ -10,6 +10,7 @@ class SampleClass:
 
     :param param: some parameter
     """
+
     def __init__(self, param: str = None):
         self.hello = "hello "
         self.param = param

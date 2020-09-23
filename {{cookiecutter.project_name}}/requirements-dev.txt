@@ -1,5 +1,9 @@
 tox
+pytest
 jupyter
+nbconvert==5.6.1
 pylint
 anybadge
 sphinx
+bump2version
+black

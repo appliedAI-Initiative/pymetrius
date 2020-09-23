@@ -2,6 +2,8 @@
 
 # run this from the repository's top level directory
 
+# This will create a new project, run the build/test suite and cleanup everything, if so desired.
+
 set -e
 
 CLEANUP=false
@@ -9,7 +11,7 @@ OUTPUT_PATH=".."
 
 while :; do
   case $1 in
-  -o|-\?|--output)
+  -o | -\? | --output)
     if [ "$2" ]; then
       OUTPUT_PATH=$2
       shift 2
@@ -31,6 +33,7 @@ while :; do
     ;;
   *)
     break
+    ;;
 
   esac
 
@@ -38,13 +41,14 @@ done
 
 OUTPUT_PATH=${1:-".."}
 
-echo "Creating test project in $OUTPUT_PATH/inttest"
-cookiecutter . --config-file  tests/config.yaml --no-input -o "$OUTPUT_PATH"
+TESTPROJECT_NAME=inttest
+
+echo "Creating test project in $OUTPUT_PATH/$TESTPROJECT_NAME"
+cookiecutter . --config-file tests/config.yaml --no-input -o "$OUTPUT_PATH"
 (
-  echo "Building the testproject"
-  cd "$OUTPUT_PATH/inttest"
+  echo "Building $TESTPROJECT_NAME for the first time. This might take quite a while."
+  cd "$OUTPUT_PATH/$TESTPROJECT_NAME"
   tox
   echo "SUCCESS"
-  if $CLEANUP; then echo "Performing cleanup" && rm -rf ../inttest; fi
+  if $CLEANUP; then echo "Performing cleanup" && rm -rf "${OUTPUT_PATH:?}/${TESTPROJECT_NAME}"; fi
 )
-

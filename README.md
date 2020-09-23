@@ -2,7 +2,7 @@
 
 This repository contains a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template 
 that can be used for library development. The template 
-contains several well-known "best-practices" for libraries (tox, sphinx, coverage, pylint etc) and also some tools 
+  bcontains several well-known "best-practices" for libraries (tox, sphinx, coverage, pylint etc) and also some tools 
 inspired by past projects of mine that I consider generally useful - configuration helpers, 
 auto-generation of documentation files, links for jumping directly to the correct place in the source code and others.
 
@@ -17,7 +17,7 @@ https://gitlab.aai.lab/%{project_path}/-/jobs/artifacts/develop/raw/badges/cover
 ```
 
 In the documentation links to source code will be created, therefore you will be prompted to give the project's 
-path relative to our the gitlab url (https://gitlab.aai.lab/).
+path relative to our gitlab url (https://gitlab.aai.lab/).
 
 See the resulting repository's [readme]({{cookiecutter.project_name}}/README.md) for further details
 

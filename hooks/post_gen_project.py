@@ -15,7 +15,17 @@ if "{{cookiecutter.include_readthedocs_yaml}}" != "y":
 
 return_code = os.system("""
 git init
+echo "Initializing repository in $(pwd)"
 git add . && git commit -m "Initial commit of python_library_template"
-echo "Repository initialized in $(pwd)"
+echo "Creating and activating venv"
+python -m venv ./venv
+. venv/bin/activate
+echo "Installing {{cookiecutter.project_name}} in editable mode into venv"
+pip install -e .
+echo "Installing development dependencies"
+pip install -r requirements-dev.txt
+echo "Performing Initial formatting"
+black .
+echo "Running the sample script"
 python scripts/run_sample.py
 """)
