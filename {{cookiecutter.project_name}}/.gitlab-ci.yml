@@ -23,7 +23,7 @@ cache: &global_cache
 before_script:
   - mkdir -p apt-cache
   # pandoc needed for docu, see https://nbsphinx.readthedocs.io/en/0.7.1/installation.html?highlight=pandoc#pandoc
-  - apt-get update -yq && apt-get -o -yq dir::cache::archives="$(pwd)/apt-cache" install pandoc
+  - apt-get update -yq && apt-get -o dir::cache::archives="$(pwd)/apt-cache" -yq install pandoc
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
