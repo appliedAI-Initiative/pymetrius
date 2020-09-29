@@ -45,7 +45,7 @@ extensions = [
 # see https://www.sphinx-doc.org/en/master/usage/extensions/linkcode.html#module-sphinx.ext.linkcode
 def linkcode_resolve(domain, info):
     link_prefix = (
-        "https://gitlab.aai.lab//{{cookiecutter.gitlab_project_path}}/blob/develop"
+        "https://gitlab.aai.lab/{{cookiecutter.gitlab_project_path}}/blob/develop"
     )
     if domain != "py":
         return None
