@@ -27,6 +27,7 @@ echo "Performing Initial formatting"
 black .
 echo "Initial commit"
 git add . && git commit -m "Initial commit by python_library_template"
+git branch develop && git checkout develop
 echo "Running the sample script"
 python scripts/run_sample.py
 """)

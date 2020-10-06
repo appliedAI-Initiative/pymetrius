@@ -7,7 +7,7 @@ setup(
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     include_package_data=True,
-    version="{{cookiecutter.initial_version}}",
+    version="{{cookiecutter.initial_version}}-dev1",
     description="Library for {{cookiecutter.project_name}}",
     install_requires=open("requirements.txt").readlines(),
     setup_requires=["wheel"],
