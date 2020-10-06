@@ -23,7 +23,7 @@ cache: &global_cache
 before_script:
   - mkdir -p apt-cache
   # pandoc needed for docu, see https://nbsphinx.readthedocs.io/en/0.7.1/installation.html?highlight=pandoc#pandoc
-  - apt-get update -yq && apt-get -o -yq dir::cache::archives="$(pwd)/apt-cache" install pandoc
+  - apt-get update -yq && apt-get -o dir::cache::archives="$(pwd)/apt-cache" -yq install pandoc
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
@@ -101,7 +101,7 @@ package:
         export GIT_SSH_COMMAND='ssh -i $GITLAB_DEPLOY_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=no'
 
         pip install bump2version
-        apt-get update && apt-get -o -yq dir::cache::archives="$(pwd)/apt-cache" install git-lfs
+        apt-get update && apt-get -o dir::cache::archives="$(pwd)/apt-cache" -yq install git-lfs
 
         bump2version build --commit
         git push -o ci.skip origin HEAD:develop
