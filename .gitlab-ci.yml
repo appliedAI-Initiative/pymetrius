@@ -14,4 +14,5 @@ inttest:
     - pip install cookiecutter tox
     - git config --global user.email automated@gitlab.com
     - git config --global user.name "automated_user"
+    - chmod +x tests/integration_test.sh
     - tests/integration_test.sh
