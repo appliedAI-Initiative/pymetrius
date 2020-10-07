@@ -2,7 +2,7 @@ image: "python:{{cookiecutter.python_version}}-buster"
 
 stages:
   - tox
-  - Documentation
+  - documentation
   - build
   - publish
   - update-tox-cache
@@ -28,33 +28,7 @@ before_script:
   - virtualenv venv
   - source venv/bin/activate
 
-tox_recreate:
-  only:
-    changes:
-      # recreate environments if dependencies have changed
-      - requirements.txt
-  cache:
-    <<: *global_cache
-    policy: push
-  stage: tox
-  script:
-    - pip install tox
-    - tox -r
-  artifacts:
-    paths:
-      - badges
-      - docs/_build
-      - htmlcov
-      - pylint.html
-
-tox_use_cache:
-  except:
-    changes:
-      #   use cache if environments if dependencies haven't changed
-      - requirements.txt
-  cache:
-    <<: *global_cache
-    policy: pull
+.tox_job: &tox_job
   stage: tox
   script:
     - pip install tox
@@ -66,9 +40,29 @@ tox_use_cache:
       - htmlcov
       - pylint.html
 
+tox_recreate:
+  only:
+    changes:
+      - requirements.txt
+  cache:
+    # push cache if dependencies have changed
+    <<: *global_cache
+    policy: push
+  <<: *tox_job
+
+tox_use_cache:
+  except:
+    changes:
+      - requirements.txt
+  cache:
+    # use cache if dependencies haven't changed
+    <<: *global_cache
+    policy: pull
+  <<: *tox_job
+
 pages:
   cache: {}
-  stage: Documentation
+  stage: documentation
   script:
     - mv docs/_build/html/* public/docs
     - mv pylint.html public/pylint/index.html
