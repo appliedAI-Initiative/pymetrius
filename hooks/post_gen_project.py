@@ -15,7 +15,7 @@ if "{{cookiecutter.include_readthedocs_yaml}}" != "y":
 
 return_code = os.system("""
 git init
-echo "Initializing repository in $(pwd)"
+echo "Initializing your new project in in $(pwd). This might take a while"
 echo "Creating and activating venv"
 python -m venv ./venv
 . venv/bin/activate

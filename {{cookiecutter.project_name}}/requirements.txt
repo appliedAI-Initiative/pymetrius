@@ -1,2 +1,1 @@
---extra-index-url=https://nexus.admin.aai.sh/repository/aai-pypi/
-data-access==0.1.1.dev4
+data-access==0.1.1
