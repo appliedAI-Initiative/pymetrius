@@ -2,7 +2,7 @@
   "project_name": null,
   "author": null,
   "package_name": "{{cookiecutter.project_name}}",
-  "python_version": ["3.7", "3.8"],
+  "python_version": ["3.8", "3.9"],
   "gitlab_project_path": "{{cookiecutter.author}}/{{cookiecutter.project_name}}",
   "include_readthedocs_yaml": ["N", "y"],
   "initial_version": "0.1.0"
