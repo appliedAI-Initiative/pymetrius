@@ -1,1 +1,1 @@
-__version__ = "{{cookiecutter.initial_version}}"
+__version__ = "{{cookiecutter.initial_version}}-dev1"

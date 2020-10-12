@@ -14,20 +14,26 @@ if "{{cookiecutter.include_readthedocs_yaml}}" != "y":
 
 
 return_code = os.system("""
-git init
 echo "Initializing your new project in in $(pwd). This might take a while"
+git init
+git remote add origin https://gitlab.aai.lab/{{cookiecutter.gitlab_project_path}}
 echo "Creating and activating venv"
-python -m venv ./venv
+python{{cookiecutter.python_version}} -m venv ./venv
 . venv/bin/activate
-echo "Installing {{cookiecutter.project_name}} in editable mode into venv"
-pip install -e .
-echo "Installing development dependencies"
-pip install -r requirements-dev.txt
+echo "Installing formatter"
+pip install -q black pre-commit
 echo "Performing Initial formatting"
 black .
+echo "Setting git hooks"
+pre-commit install
+pre-commit autoupdate
 echo "Initial commit"
-git add . && git commit -m "Initial commit by python_library_template"
+git add . && git commit -q -m "Initial commit by python_library_template"
 git branch develop && git checkout develop
+echo "Installing {{cookiecutter.project_name}} in editable mode into venv"
+pip install -q --extra-index-url https://nexus.admin.aai.sh/repository/aai-pypi/simple -e .
+echo "A virtual environment for your project has been created in $(pwd)/venv.\
+ The library was installed there in editable mode."
 echo "Running the sample script"
 python scripts/run_sample.py
 """)
