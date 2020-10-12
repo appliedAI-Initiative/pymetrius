@@ -28,13 +28,7 @@ The template supports python 3.8 and higher. In order for a smooth project gener
     sudo apt-get install python<VERSION>-venv
     ```
 3) Cookiecutter. Install it e.g. with `pip install cookiecutter`
-4) Pip should be able to resolve appliedAI's python package index. E.g. for ubuntu, one way to achieve it is
-to add the following to `~/.config/pip/pip.conf`:
-    ```
-    [global]
-    extra-index-url = https://nexus.admin.aai.sh/repository/aai-pypi/simple
-    ```
-5) You should set up a new gitlab repo in https://gitlab.aai.lab/<gitlab_project_path>. Add your credentials,
+4) You should set up a new gitlab repo in https://gitlab.aai.lab/<gitlab_project_path>. Add your credentials,
 create the develop branch and mark it as default branch. This can also be done after the project
 was generated locally.
 
