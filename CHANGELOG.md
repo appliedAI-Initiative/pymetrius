@@ -1,5 +1,18 @@
 # Changelog
 
+## 12.10.2020
+
+### Features
+
+- Improved support for dependencies in aAI python package index
+- Remote is added on project creation
+- Reduced requirements-dev for faster project creation
+
+### Changes
+
+- Dropped support for python 3.7
+- Pylint output no longer shown in tox run
+
 ## 11.10.2020
 
 ### Features
