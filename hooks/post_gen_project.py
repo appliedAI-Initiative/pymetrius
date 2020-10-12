@@ -13,10 +13,11 @@ if "{{cookiecutter.include_readthedocs_yaml}}" != "y":
     remove(".readthedocs.yaml")
 
 
-return_code = os.system("""
+return_code = os.system(
+    """
 echo "Initializing your new project in in $(pwd). This might take a while"
 git init
-git remote add origin https://gitlab.aai.lab/{{cookiecutter.gitlab_project_path}}
+git remote add origin git@gitlab.aai.lab:{{cookiecutter.gitlab_project_path}}.git
 echo "Creating and activating venv"
 python{{cookiecutter.python_version}} -m venv ./venv
 . venv/bin/activate
@@ -36,4 +37,5 @@ echo "A virtual environment for your project has been created in $(pwd)/venv.\
  The library was installed there in editable mode."
 echo "Running the sample script"
 python scripts/run_sample.py
-""")
+"""
+)
