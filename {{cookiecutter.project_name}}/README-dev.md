@@ -38,6 +38,22 @@ into your environment by running
 ```shell script
 pip install -e .
 ```
+Make sure that appliedAI's python package index can be resolved by pip. The simplest way to reach that is to
+add a global pip configuration, for ubuntu in `~/.config/pip/pip.conf`:
+```
+[global]
+extra-index-url = https://nexus.admin.aai.sh/repository/aai-pypi/simple
+```
+
+
+### Additional requirements
+
+The main requirements for developping the library locall are in `requirements-dev.txt`.
+For building documentation locally (which is done as part of the tox suite) you will need pandoc. 
+It can be installed e.g. via
+```shell script
+sudo apt-get update -yq && apt-get install -yq pandoc
+```
 
 ### Testing and packaging
 The library is built with tox which will build and install the package, run the test suite and build documentation.

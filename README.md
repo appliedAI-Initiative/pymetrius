@@ -19,18 +19,18 @@ See the resulting repository's [readme]({{cookiecutter.project_name}}/README-dev
 
 ## Prerequisites
 
-The template supports python 3.8 and higher. In order for a smooth project generation you need to have
+The template supports python 3.8 and higher. For a smooth project generation you need to have
 
 1) Python of the correct version installed on your system.
 2) The venv module for that python version. If not installed yet, you can install it with
     ```shell script
-    sudo apt-get update
-    sudo apt-get install python<VERSION>-venv
+    sudo apt-get update && apt-get install python<VERSION>-venv
     ```
 3) Cookiecutter. Install it e.g. with `pip install cookiecutter`
 4) You should set up a new gitlab repo in https://gitlab.aai.lab/<gitlab_project_path>. Add your credentials,
 create the develop branch and mark it as default branch. This can also be done after the project
 was generated locally.
+
 
 ## Creating a new project
 
