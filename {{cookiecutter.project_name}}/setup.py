@@ -9,7 +9,11 @@ setup(
     include_package_data=True,
     version="{{cookiecutter.initial_version}}-dev1",
     description="Library for {{cookiecutter.project_name}}",
-    install_requires=open("requirements.txt").readlines(),
+    install_requires=[
+        line
+        for line in open("requirements.txt").readlines()
+        if not line.startswith("--")
+    ],
     setup_requires=["wheel"],
     tests_require=test_requirements,
     author="{{cookiecutter.author}}",
