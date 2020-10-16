@@ -14,6 +14,9 @@ setup(
         for line in open("requirements.txt").readlines()
         if not line.startswith("--")
     ],
+    dependency_links=[
+        "https://nexus.admin.aai.sh/repository/aai-pypi/simple"
+    ],
     setup_requires=["wheel"],
     tests_require=test_requirements,
     author="{{cookiecutter.author}}",
