@@ -19,8 +19,8 @@ echo "Initializing your new project in in $(pwd). This might take a while"
 git init
 git remote add origin git@gitlab.aai.lab:{{cookiecutter.gitlab_project_path}}.git
 echo "Creating and activating venv"
-python{{cookiecutter.python_version}} -m venv ./venv
-. venv/bin/activate
+python{{cookiecutter.python_version}} -m venv ./.venv
+. .venv/bin/activate
 echo "Installing formatter"
 pip install -q black pre-commit
 echo "Performing Initial formatting"

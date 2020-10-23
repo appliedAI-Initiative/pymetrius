@@ -4,7 +4,12 @@
 
 ### Features
 
-- Added support for local config in CI 
+- Added support for local config in CI
+
+### Fixes
+
+- Black formatter now ignores the venv
+- The directory data/raw is part of initial commit (hopefully) 
 
 ## 12.10.2020
 
