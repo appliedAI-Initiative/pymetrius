@@ -88,6 +88,14 @@ Notebooks also form part of the documentation, see explanation above.
 The repository also includes [configuration utilities](config.py) that are often helpful when using data-related libraries. 
 They do not form part of the resulting package, you can (and probably should) adjust them to your needs.
 
+By default the configured secrets like access keys and so on are expected to be in a file called `config_local.json`.
+In order for these secrets to be available in CI/CD during the build, _create a gitlab variable of type file called_
+`CONFIG_LOCAL` containing your CI secrets. 
+Note that sometimes it makes sense for them to differ from your own local config.
+
+Generally the configuration utils support an arbitrary hierarchy of config files, you will have to adjust the
+[config.py](config.py) and the gitlab pipeline if you want to make use of that.
+
 ## CI/CD and Release Process
 This repository contains a [gitlab ci/cd pipeline](.gitlab-ci.yml) that will run the test suite and
 publish docu, badges and reports. Badges can accessed from the pipeline's artifacts, e.g. for the coverage badge

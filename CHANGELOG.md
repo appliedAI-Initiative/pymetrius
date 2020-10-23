@@ -1,5 +1,17 @@
 # Changelog
 
+## 23.10.2020
+
+### Features
+
+- Added support for local config in CI
+
+### Fixes
+
+- Black formatter now ignores the initial venv
+- The directory data/raw is part of initial commit (hopefully)
+- Fixed docu versioning 
+
 ## 12.10.2020
 
 ### Features
