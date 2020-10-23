@@ -1,5 +1,11 @@
 # Changelog
 
+## 23.10.2020
+
+### Features
+
+- Added support for local config in CI 
+
 ## 12.10.2020
 
 ### Features

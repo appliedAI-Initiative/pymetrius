@@ -24,6 +24,7 @@ before_script:
   - mkdir -p apt-cache
   # pandoc needed for docu, see https://nbsphinx.readthedocs.io/en/0.7.1/installation.html?highlight=pandoc#pandoc
   - apt-get update -yq && apt-get -o dir::cache::archives="$(pwd)/apt-cache" -yq install pandoc
+  - if [ -e $LOCAL_CONFIG ]; then mv $CONFIG_LOCAL ./config_local.json && echo "retrieved local config"; fi
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
