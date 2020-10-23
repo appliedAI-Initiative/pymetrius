@@ -8,8 +8,9 @@
 
 ### Fixes
 
-- Black formatter now ignores the venv
-- The directory data/raw is part of initial commit (hopefully) 
+- Black formatter now ignores the initial venv
+- The directory data/raw is part of initial commit (hopefully)
+- Fixed docu versioning 
 
 ## 12.10.2020
 

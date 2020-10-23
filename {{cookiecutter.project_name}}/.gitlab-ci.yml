@@ -13,7 +13,7 @@ variables:
 cache: &global_cache
   paths:
     - .cache/pip
-    - venv/
+    - .venv/
     - .tox
     - apt-cache/
   key: ${CI_COMMIT_REF_SLUG}
@@ -26,8 +26,8 @@ before_script:
   - apt-get update -yq && apt-get -o dir::cache::archives="$(pwd)/apt-cache" -yq install pandoc
   - if [ -e $LOCAL_CONFIG ]; then mv $CONFIG_LOCAL ./config_local.json && echo "retrieved local config"; fi
   - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
+  - virtualenv .venv
+  - source .venv/bin/activate
 
 .tox_job: &tox_job
   stage: tox
@@ -78,7 +78,7 @@ package:
   cache:
     paths:
       - .cache/pip
-      - venv/
+      - .venv/
     key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
   stage: build
   script:
