@@ -1,4 +1,4 @@
-from data_access.config import DefaultDataConfiguration, ConfigProviderBase
+from data_access.config import ConfigProviderBase, DefaultDataConfiguration
 
 
 class __Configuration(DefaultDataConfiguration):
