@@ -22,9 +22,10 @@ echo "Creating and activating venv"
 python{{cookiecutter.python_version}} -m venv ./.venv
 . .venv/bin/activate
 echo "Installing formatter"
-pip install -q black pre-commit
+pip install -q black isort pre-commit
 echo "Performing Initial formatting"
 black .
+isort .
 echo "Setting git hooks"
 pre-commit install
 pre-commit autoupdate
@@ -39,3 +40,6 @@ echo "Running the sample script"
 python scripts/run_sample.py
 """
 )
+if return_code:
+    import sys
+    sys.exit(return_code)
