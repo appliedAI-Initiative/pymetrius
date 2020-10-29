@@ -136,20 +136,10 @@ to have `bumpversion` automatically derive the next release version):
 ./scripts/release-version.sh 0.1.6
 ```
 
-The script takes the following options:
+To find out how to use the script, pass the `-h` or `--help` flags:
 
-```
-Usage:
-  release-version.sh [FLAGS] VERSION_STR
-
-  Optional flags:
-    -d             Delete release branch after merging
-    -v, --verbose  Print debug information
-    -y, --yes      Do not prompt for confirmation, for non-interactive use
-
-  Positional options:
-    VERSION_STR   Version to release, e.g. v0.1.2.
-                  If not specified, 'bumpversion' is used to determine release version number.
+```shell script
+./build_scripts/release-version.sh --help
 ```
 
 If running in interactive mode (without `-y|--yes`), the script will output a summary of pending
