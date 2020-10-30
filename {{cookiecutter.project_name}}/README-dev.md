@@ -38,17 +38,11 @@ into your environment by running
 ```shell script
 pip install -e .
 ```
-Make sure that appliedAI's python package index can be resolved by pip. The simplest way to reach that is to
-add a global pip configuration, for ubuntu in `~/.config/pip/pip.conf`:
-```
-[global]
-extra-index-url = https://nexus.admin.aai.sh/repository/aai-pypi/simple
-```
 
 
 ### Additional requirements
 
-The main requirements for developping the library locall are in `requirements-dev.txt`.
+The main requirements for developing the library locally are in `requirements-dev.txt`.
 For building documentation locally (which is done as part of the tox suite) you will need pandoc. 
 It can be installed e.g. via
 ```shell script
@@ -61,7 +55,7 @@ Running tox will also generate coverage and pylint reports in html and badges.
 You can configure pytest, coverage and pylint by adjusting [pytest.ini](pytest.ini), [.coveragerc](.coveragerc) and
 [.pylintrc](.pylintrc) respectively.
 
-A note on notebooks: all notebooks in the [notebooks](notebooks) directory will be executed during test run, 
+Concerning notebooks: all notebooks in the [notebooks](notebooks) directory will be executed during test run, 
 the results will be added to the docu in the _Guides and Tutorials_ section. Thus, notebooks can be conveniently used
 as integration tests and docu at the same time.
 
@@ -97,14 +91,18 @@ Generally the configuration utils support an arbitrary hierarchy of config files
 [config.py](config.py) and the gitlab pipeline if you want to make use of that.
 
 ## CI/CD and Release Process
-This repository contains a [gitlab ci/cd pipeline](.gitlab-ci.yml) that will run the test suite and
-publish docu, badges and reports. Badges can accessed from the pipeline's artifacts, e.g. for the coverage badge
+This repository contains ci/cd pipelines for multiple providers. 
+The most sophisticated one is the [gitlab ci pipeline](.gitlab-ci.yml) (this is what we use internally appliedAI), it 
+will run the test suite and publish docu, badges and reports. 
+Badges can accessed from the pipeline's artifacts, e.g. for the coverage badge
 the url will be:
 ```
-https://gitlab.aai.lab/%{project_path}/-/jobs/artifacts/develop/raw/badges/coverage.svg?job=tox
+https://{{cookiecutter.project_url}}/-/jobs/artifacts/develop/raw/badges/coverage.svg?job=tox_use_cache
 ```
 
-### Development and Release Process
+The github and azure ci pipelines are rather rudimentary.
+
+### Development and Release Process with Gitlab
 
 In order to be able to automatically release new versions of the package from develop and master, the
  CI pipeline should have access to the following variables (they should already be set on global level):

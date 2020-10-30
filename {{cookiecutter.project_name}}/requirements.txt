@@ -1,1 +1,1 @@
-data_access==0.1.6
+numpy
