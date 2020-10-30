@@ -10,8 +10,7 @@ Build, install and tests of the library are run by tox, the documentation is bui
 helper script (both also invoked by tox). The resulting repository will contain a gitlab ci/cd pipeline that will 
 run the test suite and publish docu, badges and reports.
 
-In the documentation links to source code will be created, therefore you will be prompted to give the project's 
-path relative to our gitlab url (https://gitlab.aai.lab/).
+In the documentation links to source code will be created, therefore you will be prompted to give the project's url.
 
 See the resulting repository's [readme]({{cookiecutter.project_name}}/README-dev.md) for further details
 
@@ -34,7 +33,7 @@ The template supports python 3.8 and higher. For a smooth project generation you
 Call
 
 ```shell script
-cookiecutter https://gitlab.aai.lab/resources/python_library_template -o path/to/directory
+cookiecutter https://github.com/appliedAI-Initiative/python_library_template -o path/to/directory
 ```
 
 and walk through the questions. You can also clone this repository, adjust the template and call cookiecutter on
