@@ -92,7 +92,7 @@ Generally the configuration utils support an arbitrary hierarchy of config files
 
 ## CI/CD and Release Process
 This repository contains ci/cd pipelines for multiple providers. 
-The most sophisticated one is the [gitlab ci pipeline](.gitlab-ci.yml) (this is what we use internally appliedAI), it 
+The most sophisticated one is the [gitlab ci pipeline](.gitlab-ci.yml) (this is what we use internally at appliedAI), it 
 will run the test suite and publish docu, badges and reports. 
 Badges can accessed from the pipeline's artifacts, e.g. for the coverage badge
 the url will be:
