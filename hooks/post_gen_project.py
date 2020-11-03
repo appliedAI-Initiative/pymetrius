@@ -34,7 +34,7 @@ git add . && git commit -q -m "Initial commit by python_library_template"
 git branch develop && git checkout develop
 echo "Installing {{cookiecutter.project_name}} in editable mode into venv"
 pip install -q -e .
-pip install - q --extra-index-url https://nexus.admin.aai.sh/repository/aai-pypi/simple data-access
+pip install -q --extra-index-url https://nexus.admin.aai.sh/repository/aai-pypi/simple data-access
 echo "A virtual environment for your project has been created in $(pwd)/venv.\
  The library was installed there in editable mode."
 echo "Running the sample script"

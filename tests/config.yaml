@@ -1,4 +1,5 @@
 default_context:
-  project_name: inttest
+  project_name: python_library_template_output
   author: automated_user
-  python_version: 3.9
+  python_version: 3.8
+  project_url: gitlab.aai.lab/resources/template_tests/python_library_template_output

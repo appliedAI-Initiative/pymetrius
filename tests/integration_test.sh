@@ -41,7 +41,7 @@ done
 
 OUTPUT_PATH=${1:-".."}
 
-TESTPROJECT_NAME=inttest
+TESTPROJECT_NAME="python_library_template_output"
 
 echo "Creating test project in $OUTPUT_PATH/$TESTPROJECT_NAME"
 cookiecutter . --config-file tests/config.yaml --no-input -o "$OUTPUT_PATH"
