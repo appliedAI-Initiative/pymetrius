@@ -87,7 +87,7 @@ package:
       if [ "$CI_COMMIT_BRANCH" = "develop" ]; then
         # Git config
         git config user.name "Gitlab CI"
-        git config user.email "gitlab@robot.com"
+        git config user.email "gitlab@example.org"
         chown 0600 $GITLAB_DEPLOY_KEY
 
         # HTTPS clone URL -> git+ssh URL for pushing

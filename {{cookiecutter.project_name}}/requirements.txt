@@ -1,1 +1,1 @@
-numpy
+requests~=2.24
