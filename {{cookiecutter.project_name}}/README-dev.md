@@ -100,7 +100,7 @@ the url will be:
 https://{{cookiecutter.project_url}}/-/jobs/artifacts/develop/raw/badges/coverage.svg?job=tox_use_cache
 ```
 
-The github and azure ci pipelines are rather rudimentary.
+The github and azure ci pipelines are rather rudimentary. Pull requests are always welcome!
 
 ### Development and Release Process with Gitlab
 
