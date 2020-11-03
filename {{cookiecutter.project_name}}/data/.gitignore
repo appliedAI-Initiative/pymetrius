@@ -1,3 +1,2 @@
-*
-!./raw/hello.txt
-!./raw/.gitignore
+ *
+ !.gitignore

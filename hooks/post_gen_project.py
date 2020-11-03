@@ -30,8 +30,9 @@ echo "Setting git hooks"
 pre-commit install
 pre-commit autoupdate
 echo "Initial commit"
-git add . && git commit -q -m "Initial commit by python_library_template"
-git branch develop && git checkout develop
+git checkout -b develop
+git add . && git add -f data/raw/hello.txt 
+git commit -q -m "Initial commit by python_library_template"
 echo "Installing {{cookiecutter.project_name}} in editable mode into venv"
 pip install -q -e .
 pip install -q --extra-index-url https://nexus.admin.aai.sh/repository/aai-pypi/simple data-access

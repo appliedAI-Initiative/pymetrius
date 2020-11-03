@@ -29,4 +29,4 @@ integration_test:
       cd ../python_library_template_output
       git remote add origin git@gitlab.aai.lab:resources/template_tests/python_library_template_output.git
       git push -f --set-upstream origin develop
-    - echo "visit the UI to see if the generated project's pipeline is successful \n{$PIPELINES_URL}"
+    - echo "visit the UI to see if the generated project's pipeline is successful \n $PIPELINES_URL"
