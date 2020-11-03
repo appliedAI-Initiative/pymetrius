@@ -23,9 +23,10 @@ integration_test:
       echo Pushing to template_output remote
       chmod 0600 $GITLAB_DEPLOY_KEY
 
-      # HTTPS clone URL -> git+ssh URL for pushing
+      # git+ssh URL for pushing
       export GIT_SSH_COMMAND='ssh -i $GITLAB_DEPLOY_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=no'
 
       cd ../python_library_template_output
+      git remote add origin git@gitlab.aai.lab:resources/template_tests/python_library_template_output.git
       git push -f
     - echo "visit the UI to see if the generated project's pipeline is successful \n{$PIPELINES_URL}"
