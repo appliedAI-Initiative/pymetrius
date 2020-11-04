@@ -41,6 +41,7 @@ done
 
 OUTPUT_PATH=${1:-".."}
 
+# keep in sync with config.yaml
 TESTPROJECT_NAME="python_library_template_output"
 
 echo "Creating test project in $OUTPUT_PATH/$TESTPROJECT_NAME"
