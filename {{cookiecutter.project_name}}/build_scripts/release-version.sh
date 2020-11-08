@@ -27,7 +27,7 @@ function fail() {
 }
 
 function usage() {
-  cat > /dev/stderr <<EOF
+  cat > /dev/stdout <<EOF
 Usage:
   release-version.sh [FLAGS] VERSION_STR
 
@@ -45,7 +45,6 @@ Usage:
   Prerequisites:
     The repository has to be clean (including no untracked files) and on the ${bold}develop${normal} branch.
 EOF
-  exit 255
 }
 
 function _parse_opts() {
@@ -62,8 +61,8 @@ function _parse_opts() {
     key="$1"
     case $key in
         -h|--help)
-          HELP=1
-          shift
+          usage
+          exit 0
         ;;
         -v|--verbose)
           DEBUG=1
@@ -81,12 +80,23 @@ function _parse_opts() {
           DELETE_BRANCH=1
           shift
         ;;
-        *)    # unknown option
+        -*)
+          >&2 echo "Unknown option: $1"
+          usage
+          exit 255
+        ;;
+        *)
           POSITIONAL+=("$1") # save it in an array for later
           shift
         ;;
     esac
   done
+
+  if [[ "${#POSITIONAL[@]}" -gt 1 ]]; then
+    >&2 echo "Too many positional args: ${POSITIONAL[*]}"
+    usage
+    exit 255
+  fi
 
   export DEBUG
   export DELETE_BRANCH
@@ -173,9 +183,6 @@ EOF
 }
 
 _parse_opts "$@"
-if [[ -n $HELP ]]; then
-  usage
-fi
 
 CURRENT_VERSION=$(bumpversion --dry-run --list patch | grep current_version | sed -r s,"^.*=",,)
 RELEASE_BRANCH="release/v$RELEASE_VERSION"
