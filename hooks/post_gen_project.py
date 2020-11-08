@@ -44,4 +44,5 @@ python scripts/run_sample.py
 )
 if return_code:
     import sys
+
     sys.exit(return_code)

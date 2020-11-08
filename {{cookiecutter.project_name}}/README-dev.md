@@ -97,7 +97,7 @@ will run the test suite and publish docu, badges and reports.
 Badges can accessed from the pipeline's artifacts, e.g. for the coverage badge
 the url will be:
 ```
-https://<gitlab_project_url>/-/jobs/artifacts/develop/raw/badges/coverage.svg?job=tox_use_cache
+<gitlab_project_url>/-/jobs/artifacts/develop/raw/badges/coverage.svg?job=tox_use_cache
 ```
 
 The github and azure ci pipelines are rather rudimentary. Pull requests are always welcome!
