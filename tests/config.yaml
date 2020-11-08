@@ -2,4 +2,4 @@ default_context:
   project_name: python_library_template_output
   author: automated_user
   python_version: 3.8
-  project_url: gitlab.aai.lab/resources/template_tests/python_library_template_output
+  project_url: https://gitlab.aai.lab/resources/template_tests/python_library_template_output
