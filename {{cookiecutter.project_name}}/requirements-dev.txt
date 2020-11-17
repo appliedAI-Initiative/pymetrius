@@ -4,4 +4,4 @@ jupyter
 bump2version
 black
 pre-commit
-data_access~=0.2
+accsr
