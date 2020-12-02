@@ -33,7 +33,6 @@ Usage:
 
   Optional flags:
     -h, --help              Show this information and exit
-    -d                      Delete release branch after merging
     -e                      Edit changelog (using default editor)
     -v, --verbose           Print debug information
     -y, --yes               Do not prompt for confirmation, for non-interactive use (incompatible with -e)
@@ -52,7 +51,6 @@ function _parse_opts() {
   POSITIONAL=()
 
   DEBUG=
-  DELETE_BRANCH=
   EDIT_CHANGELOG=
   FORCE_YES=
   HELP=
@@ -78,10 +76,6 @@ function _parse_opts() {
           FORCE_YES=1
           shift
         ;;
-        -d|--delete-branch)
-          DELETE_BRANCH=1
-          shift
-        ;;
         -r|--remote)
           REMOTE="$2"
           shift 2
@@ -105,7 +99,6 @@ function _parse_opts() {
   fi
 
   export DEBUG
-  export DELETE_BRANCH
   export EDIT_CHANGELOG
   export FORCE_YES
   export HELP
@@ -255,9 +248,7 @@ git checkout develop
 git merge --no-ff "$RELEASE_BRANCH"
 git push "$REMOTE" develop
 
-if [[ -n "$DELETE_BRANCH" ]]; then
-  echo "🗑️ Deleting release branch"
-  git branch -d "$RELEASE_BRANCH"
-fi
+echo "🗑️ Deleting release branch"
+git branch -d "$RELEASE_BRANCH"
 
 echo -e "\U2728 All done! Get yourself some coffee and watch CI/CD pipelines for errors."
