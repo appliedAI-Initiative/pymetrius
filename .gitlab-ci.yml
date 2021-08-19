@@ -26,7 +26,7 @@ integration_test:
       export GIT_SSH_COMMAND='ssh -i $GITLAB_DEPLOY_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=no'
 
       cd ../python_library_template_output
-      git remote add origin git@gitlab.aai.lab:resources/template_tests/python_library_template_output.git
+      git remote add origin git@gitlab.aai.sh:resources/template_tests/python_library_template_output.git
       git push -f --set-upstream origin develop
       git checkout -b feature
       git push -f --set-upstream origin feature
