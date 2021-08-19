@@ -17,8 +17,7 @@ integration_test:
     - pip install cookiecutter tox
     - git config --global user.email automated@gitlab.com
     - git config --global user.name "automated_user"
-    - chmod +x tests/integration_test.sh
-    - tests/integration_test.sh
+    - tests/integration_test.sh -f
     - |
       echo Pushing to template_output remote
       chmod 0600 $GITLAB_DEPLOY_KEY
