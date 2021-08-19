@@ -11,20 +11,25 @@ resources = {"metadata": {"path": NOTEBOOKS_DIR}}
 
 log = logging.getLogger(__name__)
 
+OMITTED_NOTEBOOKS = []
+
 
 @pytest.mark.parametrize(
-    "notebook", [file for file in os.listdir(NOTEBOOKS_DIR) if file.endswith(".ipynb")]
+    "notebook",
+    [
+        file
+        for file in os.listdir(NOTEBOOKS_DIR)
+        if file.endswith(".ipynb") and file not in OMITTED_NOTEBOOKS
+    ],
 )
 def test_notebook(notebook):
     notebook_path = os.path.join(NOTEBOOKS_DIR, notebook)
     log.info(f"Reading jupyter notebook from {notebook_path}")
     with open(notebook_path) as f:
         nb = nbformat.read(f, as_version=4)
-    ep = ExecutePreprocessor(timeout=600)
-    with ep.setup_preprocessor(nb, resources=resources):
-        for i, cell in enumerate(nb["cells"]):
-            log.info(f"processing cell {i} from {notebook}")
-            ep.preprocess_cell(cell, resources=resources, cell_index=i)
+
+    ep = ExecutePreprocessor(timeout=600, kernel_name="python3")
+    ep.preprocess(nb, resources)
 
     # saving the executed notebook to docs
     output_path = os.path.join(DOCS_DIR, notebook)
