@@ -7,8 +7,8 @@ setup(
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     include_package_data=True,
-    version="{{cookiecutter.initial_version}}-dev1",
-    description="Library for {{cookiecutter.project_name}}",
+    version="{{cookiecutter.initial_version}}.dev1",
+    description="{{cookiecutter.project_name}}",
     install_requires=[
         line
         for line in open("requirements.txt").readlines()

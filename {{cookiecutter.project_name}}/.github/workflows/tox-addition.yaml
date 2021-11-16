@@ -1,0 +1,26 @@
+      - name: Cache tox envs and pip packages
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/pip
+            .tox
+          key: ${{runner.os}}-${{github.ref}}-${{hashFiles('requirements.txt', 'setup.py', 'tox.ini')}}
+      - name: Install Tox and any other packages
+        run: pip install tox
+      - name: Run Tox
+        run: tox
+      - name: Prepare Pages
+          if: github.ref == 'refs/heads/develop'
+          run: |
+            mv docs/_build/html/* public/docs
+            mv htmlcov/* public/coverage
+      - name: Deploy Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        if: github.ref == 'refs/heads/develop'
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: public
+          TARGET_FOLDER: .
+          CLEAN: true
+          SINGLE_COMMIT: true

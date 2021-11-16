@@ -1,1 +1,2 @@
-requests~=2.24
+plotly~=5.4.0
+pandas~=1.3.2

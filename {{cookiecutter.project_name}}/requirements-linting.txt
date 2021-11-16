@@ -1,0 +1,5 @@
+pylint
+anybadge
+pylint-json2html
+black
+isort==5.6.4

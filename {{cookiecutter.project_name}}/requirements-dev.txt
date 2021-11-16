@@ -1,7 +1,7 @@
 tox
-pytest
-jupyter
 bump2version
 black
+isort==5.6.4
+nbstripout==0.5.0
 pre-commit
 accsr

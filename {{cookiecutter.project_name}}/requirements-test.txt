@@ -1,0 +1,8 @@
+pytest
+pytest-cov
+pytest-xdist
+pytest-lazy-fixture
+jupyter==1.0.0
+nbconvert==6.1.0
+accsr
+coverage==5.5
