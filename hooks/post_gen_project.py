@@ -19,10 +19,10 @@ def delete_line_in_file(filepath: str, line_starts_with: str):
         f.truncate()
 
 
-if "{{cookiecutter.include_readthedocs_yaml}}" != "y":
+if "{{cookiecutter.include_readthedocs_yaml}}".lower() != "y":
     remove(".readthedocs.yaml")
 
-if "{{cookiecutter.include_configuration_utils}}" != "Y":
+if "{{cookiecutter.include_configuration_utils}}".lower() != "y":
     remove("config.py")
     remove("config.json")
     remove("notebooks/config_example.ipynb")

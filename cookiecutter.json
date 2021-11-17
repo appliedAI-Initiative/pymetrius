@@ -4,7 +4,7 @@
   "package_name": "{{cookiecutter.project_name}}",
   "python_version": ["3.8", "3.9"],
   "project_url": "https://github.com/{{cookiecutter.author}}/{{cookiecutter.project_name}}",
-  "include_configuration_utils": ["N", "y"],
+  "include_configuration_utils": ["Y", "n"],
   "include_readthedocs_yaml": ["N", "y"],
   "initial_version": "0.1.0",
   "_copy_without_render": [
