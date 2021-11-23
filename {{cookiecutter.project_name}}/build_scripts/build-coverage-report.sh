@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 function usage() {
   cat > /dev/stdout <<EOF
 Usage:
