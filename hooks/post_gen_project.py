@@ -62,6 +62,7 @@ python scripts/run_sample.py
 echo "All done, you can start by running tox (will take a while the first time) and looking at the docu in \
   docs/_build/html. \n \
   You can also just quickly run tests and build the docu using \n \
+  ./build_scripts/run-all-tests-with-coverage.sh \n
   ./build_scripts/build-docs.sh \n \"
 """
 )

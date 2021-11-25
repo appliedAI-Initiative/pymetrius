@@ -64,8 +64,8 @@ all without involving tox, you could run
 
 ```shell
 pip install -r requirements-test.txt -r requirements-docs.txt
-bash build_scripts/run-all-tests-with-coverage.sh
-bash build_scripts/build_docs.sh
+./build_scripts/run-all-tests-with-coverage.sh
+./build_scripts/build_docs.sh
 ```
 
 Concerning notebooks: all notebooks in the [notebooks](notebooks) directory will be executed during test run, 
