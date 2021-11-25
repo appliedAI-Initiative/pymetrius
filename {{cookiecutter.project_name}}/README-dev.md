@@ -65,7 +65,7 @@ all without involving tox, you could run
 ```shell
 pip install -r requirements-test.txt -r requirements-docs.txt
 ./build_scripts/run-all-tests-with-coverage.sh
-./build_scripts/build_docs.sh
+./build_scripts/build-docs.sh
 ```
 
 Concerning notebooks: all notebooks in the [notebooks](notebooks) directory will be executed during test run, 
@@ -87,13 +87,18 @@ be invoked manually as
 ```bash
 python build_scripts/update_docs.py
 ```
-See the code documentation in the script for more details on that.
+See the code documentation in the script for more details on that. We recommend using the bash script
+```shell
+./build_scripts/build-docs.sh
+```
+to both update the docs files and to rebuild the docu with sphinx in one command.
 
-Notebooks also form part of the documentation, see explanation above.
+Notebooks also form part of the documentation, in case they have been rendered before (see explanation above).
 
 ## Configuration Management
-The repository also includes [configuration utilities](config.py) that are often helpful when using data-related libraries. 
-They do not form part of the resulting package, you can (and probably should) adjust them to your needs.
+If you decided to include configuration utils when generating the project from the template, this repository 
+also includes [configuration utilities](config.py) that are often helpful when using data-related libraries. 
+They are based on appliedAI's lightweight library [accsr](https://github.com/appliedAI-Initiative/accsr).
 
 By default the configured secrets like access keys and so on are expected to be in a file called `config_local.json`.
 In order for these secrets to be available in CI/CD during the build, _create a gitlab variable of type file called_
@@ -107,13 +112,13 @@ Generally the configuration utils support an arbitrary hierarchy of config files
 This repository contains ci/cd pipelines for multiple providers. 
 The most sophisticated one is the [gitlab ci pipeline](.gitlab-ci.yml) (this is what we use internally at appliedAI), it 
 will run the test suite and publish docu, badges and reports. 
-Badges can accessed from the pipeline's artifacts, e.g. for the coverage badge
-the url will be:
+Badges can be accessed from the pipeline's artifacts, on gitlab the url of the coverage badge will be:
+
 ```
 <gitlab_project_url>/-/jobs/artifacts/develop/raw/badges/coverage.svg?job=tox_use_cache
 ```
 
-The github and azure ci pipelines are rather rudimentary. Pull requests are always welcome!
+The azure ci pipeline is rather rudimentary, pull requests are always welcome!
 
 ### Development and Release Process with Gitlab and Github
 
@@ -128,8 +133,8 @@ PYPI_REPO_PASS
 They will be used in the release steps in the pipeline. If you want to publish packages to a private server,
 you will also need to set the `PYPI_REPO_URL` variable.
 
-On gitlab, you will need to set up Gitlab CI deploy keys for 
-automatically committing from the develop pipeline during version bumping
+On gitlab, you will need to set up a `Gitlab CI deploy key` and add it as file-type variable called `GITLAB_DEPLOY_KEY` 
+for automatically committing from the develop pipeline during version bumping.
 
 #### Automatic release process
 
