@@ -4,7 +4,9 @@ This repository contains the {{cookiecutter.project_name}} python library togeth
 documentation and configuration management. 
 
 This project uses the [black](https://github.com/psf/black) source code formatter
-and [pre-commit](https://pre-commit.com/) to invoke it as a Git pre-commit hook.
+and [pre-commit](https://pre-commit.com/) to invoke it as a Git pre-commit hook. We also use 
+[isort](https://github.com/PyCQA/isort) for sorting 
+imports and [nbstripout](https://github.com/kynan/nbstripout) to prevent outputs of notebooks to be committed.
 
 When first cloning the repository, run the following command (after
 setting up your virtualenv with dev dependencies installed, see below) to set up
@@ -15,7 +17,7 @@ pre-commit install
 ```
 
 ## Local Development
-Automated builds, tests, generation of docu and publishing are handled by cicd pipelines. 
+Automated builds, tests, generation of docu and publishing are handled by CI/CD pipelines. 
 You will find an initial version of the pipeline in this repo. Below are further details on testing 
 and documentation. 
 
@@ -54,6 +56,17 @@ The library is built with tox which will build and install the package, run the 
 Running tox will also generate coverage and pylint reports in html and badges. 
 You can configure pytest, coverage and pylint by adjusting [pytest.ini](pytest.ini), [.coveragerc](.coveragerc) and
 [.pylintrc](.pylintrc) respectively.
+
+In order to facilitate testing without tox (which can be slow, especially when executed for the first time), the
+steps executed by tox are available as bash scripts within the [build_scripts](build_scripts) directory. For example,
+to run tests, execute notebooks in 4 parallel processes as integration tests (and docu) and build the docu, 
+all without involving tox, you could run
+
+```shell
+pip install -r requirements-test.txt -r requirements-docs.txt
+bash build_scripts/run-all-tests-with-coverage.sh
+bash build_scripts/build_docs.sh
+```
 
 Concerning notebooks: all notebooks in the [notebooks](notebooks) directory will be executed during test run, 
 the results will be added to the docu in the _Guides and Tutorials_ section. Thus, notebooks can be conveniently used
@@ -102,22 +115,21 @@ the url will be:
 
 The github and azure ci pipelines are rather rudimentary. Pull requests are always welcome!
 
-### Development and Release Process with Gitlab
+### Development and Release Process with Gitlab and Github
 
-In order to be able to automatically release new versions of the package from develop and master, the
- CI pipeline should have access to the following variables (they should already be set on global level):
+In order to be able to automatically release new versions of the package, the
+ CI pipeline should have access to the following variables / github secrets:
 
 ```
-PYPI_REPO_URL
 PYPI_REPO_USER
 PYPI_REPO_PASS
 ```
 
-They will be used in the release steps in the gitlab pipeline.
+They will be used in the release steps in the pipeline. If you want to publish packages to a private server,
+you will also need to set the `PYPI_REPO_URL` variable.
 
-You will also need to set up Gitlab CI deploy keys for 
+On gitlab, you will need to set up Gitlab CI deploy keys for 
 automatically committing from the develop pipeline during version bumping
-
 
 #### Automatic release process
 
