@@ -41,5 +41,8 @@ BUILD_DIR=$(dirname "$0")
   cd "${BUILD_DIR}/.." || (echo "Unknown error, could not find directory ${BUILD_DIR}" && exit 255)
   coverage erase
   pytest --cov --cov-append --cov-report=term-missing tests
+# IMPORTANT: this is flaky, sometimes the parallel execution can cause a KernelDied error
+# this is due to the following unresolved issue: https://github.com/jupyter/nbconvert/issues/1066
+# The current "solution" is to just restart the test execution / CI pipeline
   pytest -n auto notebooks
 )

@@ -41,10 +41,13 @@ before_script:
       - htmlcov
       - pylint.html
 
+.trigger_tox_recreate: &trigger_tox_recreate
+  changes:
+    - requirements*.txt
+
 tox_recreate:
   only:
-    changes:
-      - requirements.txt
+    <<: *trigger_tox_recreate
   cache:
     # push cache if dependencies have changed
     <<: *global_cache
@@ -53,8 +56,7 @@ tox_recreate:
 
 tox_use_cache:
   except:
-    changes:
-      - requirements.txt
+    <<: *trigger_tox_recreate
   cache:
     # use cache if dependencies haven't changed
     <<: *global_cache
@@ -125,8 +127,7 @@ publish_package:
 update_tox_cache:
   needs: []
   except:
-    changes:
-      - requirements.txt
+    <<: *trigger_tox_recreate
   when: manual
   allow_failure: true
   cache:
