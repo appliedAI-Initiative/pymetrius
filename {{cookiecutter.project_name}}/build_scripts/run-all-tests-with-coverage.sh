@@ -5,7 +5,7 @@ set -euo pipefail
 function usage() {
   cat > /dev/stdout <<EOF
 Usage:
-  build-coverage-report.sh [FLAGS]
+  run-all-tests-with-coverage.sh [FLAGS]
 
   Creates the coverage report and the associated badge. This script is executed during tox build.
   You can use this script directly to create the coverage report without having to use tox as a middle man.

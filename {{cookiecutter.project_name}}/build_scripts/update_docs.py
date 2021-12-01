@@ -45,7 +45,7 @@ def package_template(package_qualname: str):
 
 
 def index_template(package_name):
-    title = "Modules"
+    title = package_name.replace("_", r"\_")
     template = f"""{title}
 {"="*len(title)}
 
