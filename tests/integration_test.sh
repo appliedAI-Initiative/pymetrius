@@ -25,42 +25,42 @@ CLEANUP=false
 FORCE=false
 OUTPUT_PATH=".."
 
-while :; do
-  case $1 in
-  -o | -\? | --output)
-    if [ "$2" ]; then
-      OUTPUT_PATH=$2
-      shift 2
-    else
-      echo 'ERROR: "-o/--output" requires a non-empty option argument.'
-      exit 1
-    fi
-    ;;
-  -h|--help)
-    usage
-    exit 0
-    ;;
-  -f | --force)
-    FORCE=true
-    shift
-    ;;
-  --cleanup)
-    CLEANUP=true
-    shift
-    ;;
-  --)
-    shift
-    break
-    ;;
-  -?*)
-    printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
-    ;;
-  *)
-    break
-    ;;
-
-  esac
-
+while [[ $# -gt 0 ]]
+do
+  key="$1"
+    case $key in
+    -o | -\? | --output)
+      if [ "$2" ]; then
+        OUTPUT_PATH=$2
+        shift 2
+      else
+        echo 'ERROR: "-o/--output" requires a non-empty option argument.'
+        exit 1
+      fi
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    -f | --force)
+      FORCE=true
+      shift
+      ;;
+    --cleanup)
+      CLEANUP=true
+      shift
+      ;;
+    --)
+      shift
+      break
+      ;;
+    -?*)
+      printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+      ;;
+    *)
+      break
+      ;;
+    esac
 done
 
 OUTPUT_PATH=${1:-".."}
