@@ -4,7 +4,22 @@
 
 # This will create a new project, run the build/test suite and cleanup everything, if so desired.
 
-set -e
+set -euo pipefail
+
+function usage() {
+  cat > /dev/stdout <<EOF
+Usage:
+  integration_test.sh [FLAGS]
+
+  Creates a project from the template with default configuration (from config.yaml) and performs a build in it.
+
+  Optional flags:
+    -h, --help              Show this information and exit
+    -f, --force             Overwrite output directory if it already exists
+    --cleanup               Remove all generated files after successful project generation. Useful for a quick tests
+                            whether templating and build works but does not allow "debugging" the resulting repo.
+EOF
+}
 
 CLEANUP=false
 FORCE=false
@@ -20,6 +35,10 @@ while :; do
       echo 'ERROR: "-o/--output" requires a non-empty option argument.'
       exit 1
     fi
+    ;;
+  -h|--help)
+    usage
+    exit 0
     ;;
   -f | --force)
     FORCE=true
@@ -63,5 +82,5 @@ cookiecutter . --config-file tests/config.yaml --no-input -o "$OUTPUT_PATH"
   cd "$OUTPUT_PATH/$TESTPROJECT_NAME"
   tox
   echo "SUCCESS"
-  if $CLEANUP; then echo "Performing cleanup" && rm -rf "${OUTPUT_PATH:?}/${TESTPROJECT_NAME}"; fi
 )
+if $CLEANUP; then echo "Performing cleanup" && rm -rf "${OUTPUT_PATH:?}/${TESTPROJECT_NAME}"; fi
