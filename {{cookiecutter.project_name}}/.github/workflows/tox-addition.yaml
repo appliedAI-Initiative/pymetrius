@@ -10,10 +10,10 @@
       - name: Run Tox
         run: tox
       - name: Prepare Pages
-          if: github.ref == 'refs/heads/develop'
-          run: |
-            mv docs/_build/html/* public/docs
-            mv htmlcov/* public/coverage
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          mv docs/_build/html/* public/docs
+          mv htmlcov/* public/coverage
       - name: Deploy Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         if: github.ref == 'refs/heads/develop'
