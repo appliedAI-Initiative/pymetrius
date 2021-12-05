@@ -45,13 +45,16 @@ jobs:
           git config --global user.name "automated_user"
           pip install cookiecutter tox
       - name: Run integration test
-        run: bash tests/integration_test.sh -f --skip-build
+        run: |
+          bash tests/integration_test.sh -f --skip-build -o temp/
+          ls
+          ls temp
       - name: Push output to github repo
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: '../pymetrius_output'
+          source-directory: 'temp/pymetrius_output'
           destination-github-username: 'appliedAI-Initiative'
           destination-repository-name: 'pymetrius_output'
           user-email: pymetrius_automated@github.com
