@@ -14,6 +14,7 @@
         run: |
           mv docs/_build/html/* public/docs
           mv htmlcov/* public/coverage
+          mv pylint.html public/pylint/index.html
       - name: Deploy Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         if: github.ref == 'refs/heads/develop'
