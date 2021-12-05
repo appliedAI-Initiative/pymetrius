@@ -46,3 +46,14 @@ jobs:
           pip install cookiecutter tox
       - name: Run integration test
         run: bash tests/integration_test.sh -f
+      - name: Push output to github repo
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'pymetrius_output'
+          destination-github-username: 'appliedAI-Initiative'
+          destination-repository-name: 'pymetrius_output'
+          user-email: pymetrius_automated@github.com
+          user-name: pymetrius_automated
+          target-branch: develop

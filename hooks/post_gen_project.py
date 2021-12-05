@@ -52,7 +52,7 @@ pre-commit autoupdate
 echo "Initial commit"
 git checkout -b develop
 git add . && git add -f data/raw/hello.txt 
-git commit -q -m "Initial commit by python_library_template"
+git commit -q -m "Initial commit by pymetrius"
 echo "Installing {{cookiecutter.project_name}} in editable mode into .venv"
 pip install -q -e .
 echo "A virtual environment for your project has been created in $(pwd)/.venv, \
