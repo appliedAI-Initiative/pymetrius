@@ -15,6 +15,8 @@ Usage:
 
   Optional flags:
     -h, --help              Show this information and exit
+    -o <output_path>        Path to the directory where the project will be created, i.e. the project will be in
+                            <output_path>/pymetrius_output. Default is ".."
     -f, --force             Overwrite output directory if it already exists
     --cleanup               Remove all generated files after successful project generation. Useful for a quick tests
                             whether templating and build works but does not allow "debugging" the resulting repo.
@@ -69,8 +71,6 @@ do
       ;;
     esac
 done
-
-OUTPUT_PATH=${1:-".."}
 
 # keep in sync with config.yaml
 TESTPROJECT_NAME="pymetrius_output"
