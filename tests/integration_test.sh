@@ -18,11 +18,14 @@ Usage:
     -f, --force             Overwrite output directory if it already exists
     --cleanup               Remove all generated files after successful project generation. Useful for a quick tests
                             whether templating and build works but does not allow "debugging" the resulting repo.
+    --skip-build            Do not perform build as part of integration_test. The first build is slow and may be omitted
+                            in certain situations (e.g. if it will be performed later as part of a CI step)
 EOF
 }
 
 CLEANUP=false
 FORCE=false
+EXECUTE_BUILD=true
 OUTPUT_PATH=".."
 
 while [[ $# -gt 0 ]]
@@ -50,6 +53,10 @@ do
       CLEANUP=true
       shift
       ;;
+    --skip-build)
+      EXECUTE_BUILD=false
+      shift
+      ;;
     --)
       shift
       break
@@ -69,7 +76,7 @@ OUTPUT_PATH=${1:-".."}
 TESTPROJECT_NAME="pymetrius_output"
 
 echo "Creating test project in $OUTPUT_PATH/$TESTPROJECT_NAME"
-if [ ${FORCE} ]; then
+if $FORCE; then
   if [ -d "$OUTPUT_PATH/$TESTPROJECT_NAME" ]; then
     echo "Deleting existing directory ${OUTPUT_PATH}/${TESTPROJECT_NAME}"
     rm -r "${OUTPUT_PATH:?}/${TESTPROJECT_NAME:?}"
@@ -77,10 +84,12 @@ if [ ${FORCE} ]; then
 fi
 
 cookiecutter . --config-file tests/config.yaml --no-input -o "$OUTPUT_PATH"
-(
-  echo "Building $TESTPROJECT_NAME for the first time. This might take quite a while."
-  cd "$OUTPUT_PATH/$TESTPROJECT_NAME"
-  tox
-  echo "SUCCESS"
-)
+if $EXECUTE_BUILD; then
+  (
+    echo "Building $TESTPROJECT_NAME for the first time. This might take quite a while."
+    cd "$OUTPUT_PATH/$TESTPROJECT_NAME"
+    tox
+    echo "SUCCESS"
+  )
+fi
 if $CLEANUP; then echo "Performing cleanup" && rm -rf "${OUTPUT_PATH:?}/${TESTPROJECT_NAME}"; fi
