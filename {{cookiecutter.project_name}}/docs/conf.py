@@ -112,6 +112,19 @@ autodoc_default_options = {
     "show-inheritance": True,
 }
 
+# Needed because Mathjax 3 collides with plotly.
+# See https://github.com/spatialaudio/nbsphinx/issues/572#issuecomment-853389268
+# TODO: remove this once the corresponding bug in plotly has been fixed
+mathjax_path = 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+mathjax2_config = {
+    'tex2jax': {
+        'inlineMath': [['$', '$'], ['\\(', '\\)']],
+        'processEscapes': True,
+        'ignoreClass': 'document',
+        'processClass': 'math|output_area',
+    }
+}
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
