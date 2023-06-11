@@ -32,7 +32,7 @@ if "{{cookiecutter.include_configuration_utils}}".lower() != "y":
 
 return_code = os.system(
     """
-echo "Initializing your new project in in $(pwd). This might take a while"
+echo "Initializing your new project in $(pwd). This might take a while"
 
 # THIS IS A NAIVE HACK TO PREVENT COOKIECUTTER FROM RENDERING IN GITHUB WORKFLOWS
 cat .github/workflows/tox-addition.yaml >> .github/workflows/tox.yaml
