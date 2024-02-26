@@ -24,5 +24,6 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.PYPI_REPO_PASS }}
           {%- endraw %}
         run: |
+          # TODO: build dist with poetry
           python setup.py sdist bdist_wheel
           twine upload dist/*

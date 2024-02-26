@@ -1,10 +1,11 @@
 {
-  "project_name": null,
-  "author": null,
+  "project_name": "test",
+  "author": "carlo",
+  "author_email": "carlo@test.de",
   "package_name": "{{cookiecutter.project_name}}",
-  "python_version": ["3.8", "3.9"],
+  "python_version": ["3.11", "3.12"],
   "project_url": "https://github.com/{{cookiecutter.author}}/{{cookiecutter.project_name}}",
-  "include_configuration_utils": ["Y", "n"],
+  "include_accsr_configuration_utils": ["N", "y"],
   "include_readthedocs_yaml": ["N", "y"],
   "initial_version": "0.1.0",
   "_copy_without_render": [

@@ -1,9 +1,9 @@
 """
-This is a module in a separate package
+Module in a separate package
 """
 
 
-def hello_stranger():
+def hello_stranger() -> None:
     """
     hello
     """

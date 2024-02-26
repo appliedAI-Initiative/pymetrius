@@ -1,18 +1,16 @@
-{{cookiecutter.project_name}}
-==============================
+Welcome to {{cookiecutter.project_name}}!
+=========================================
+
+Welcome to the tryal library.
+See the project's repository_  for more information.
+
+.. _repository: https://github.com/carlo/tryal
 
 .. toctree::
    :caption: Guides and Tutorials
    :glob:
 
    *
-
-
-.. toctree::
-   :caption: Modules
-
-   {{cookiecutter.project_name}}/index
-
 
 
 Indices and tables

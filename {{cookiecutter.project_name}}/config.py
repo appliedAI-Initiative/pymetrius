@@ -1,5 +1,5 @@
 """
-This module contains configuration utils. In its current, default form, configuration will be read from config.json and
+Contains configuration utils. In its current, default form, configuration will be read from config.json and
 the git-ignored file config_local.json (you have to create it yourself if you need it) and merged. The config_local.json
 is a good place to keep access keys and other secrets.
 

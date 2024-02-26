@@ -17,20 +17,16 @@ for gitlab, for github you should configure the pages source to be the root dire
 
 In the documentation links to source code will be created, therefore you will be prompted to give the project's url.
 
-See the resulting repository's [developer's readme]({{cookiecutter.project_name}}/README-dev.md) for further details. An example of the current output of this template is in [pymetrius_output](https://github.com/appliedAI-Initiative/pymetrius_output)
+See the resulting repository's [developer's readme]({{cookiecutter.project_name}}/CONTRIBUTING.md) for further details. An example of the current output of this template is in [pymetrius_output](https://github.com/appliedAI-Initiative/pymetrius_output)
 
 # Usage
 
 ## Prerequisites
 
-The template supports python 3.8 and higher. For a smooth project generation you need to have
+The template supports python 3.11 and higher. For a smooth project generation you need to have
 
 1) Python of the correct version installed on your system.
-2) The venv module for that python version. If not installed yet, you can install it with
-    ```shell script
-    sudo apt-get update && apt-get install python<VERSION>-venv
-    ```
-3) Cookiecutter. Install it e.g. with `pip install cookiecutter`
+2) Cookiecutter. Install it e.g. with `pip install cookiecutter`
 
 
 ## Creating a new project
@@ -44,9 +40,9 @@ cookiecutter https://github.com/appliedAI-Initiative/python_library_template -o 
 and walk through the questions. You can also clone this repository, adjust the template and call cookiecutter on
 the local file.
 
-You will get a repo in `<path/to/directory>/<project_name>` with a venv inside it; the venv will contain your new
-library installed in "editable mode" (i.e. with `pip install -e` ).
-If you prefer to use a different virtual environment (like conda), feel free to delete the venv. 
+You will get a repo in `<path/to/directory>/<project_name>`, which will contain your new library installed in 
+"editable mode" (i.e. with `pip install -e` ). The virtual environment is created by poetry. Documentation is built with
+jupyter-book and is published on github pages.
 
 
 # Contributing

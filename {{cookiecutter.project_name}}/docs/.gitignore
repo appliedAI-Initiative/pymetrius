@@ -1,3 +1,4 @@
-_build
-*.ipynb
-{{cookiecutter.project_name}}/**/*.rst
+/03_api/*
+jupyter_execute
+_toc.yml
+.jupyter_cache

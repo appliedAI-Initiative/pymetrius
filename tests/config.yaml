@@ -1,5 +1,5 @@
 default_context:
   project_name: pymetrius_output
   author: automated_user
-  python_version: 3.8
+  python_version: 3.11
   project_url: https://github.com/appliedAI-Initiative/pymetrius_output
