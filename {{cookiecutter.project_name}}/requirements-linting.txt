@@ -1,6 +1,0 @@
-pylint==2.11.1
-astroid==2.8.6
-anybadge==1.7.0
-pylint-json2html==0.3.0
-black==20.8b1
-isort==5.6.4

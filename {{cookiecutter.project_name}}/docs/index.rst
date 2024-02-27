@@ -1,18 +1,10 @@
-{{cookiecutter.project_name}}
-==============================
+Welcome to {{cookiecutter.project_name}}!
+=========================================
 
-.. toctree::
-   :caption: Guides and Tutorials
-   :glob:
+Welcome to the {{cookiecutter.project_name}} library.
+See the project's repository_  for more information.
 
-   *
-
-
-.. toctree::
-   :caption: Modules
-
-   {{cookiecutter.project_name}}/index
-
+.. _repository: {{cookiecutter.project_url}}
 
 
 Indices and tables

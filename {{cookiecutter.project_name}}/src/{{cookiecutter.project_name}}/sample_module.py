@@ -1,5 +1,5 @@
 """
-This is a top-level module
+Top-level module
 """
 
 
@@ -11,11 +11,11 @@ class SampleClass:
     :param param: some parameter
     """
 
-    def __init__(self, param: str = None):
+    def __init__(self, param: str | None = None):
         self.hello = "hello "
         self.param = param
 
-    def sample_method(self, name: str):
+    def sample_method(self, name: str) -> str:
         """
         >>> from {{cookiecutter.project_name}}.sample_module import SampleClass
         >>>
