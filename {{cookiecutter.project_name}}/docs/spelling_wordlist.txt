@@ -1,4 +1,3 @@
-tianshou
 arXiv
 tanh
 lr
@@ -256,4 +255,3 @@ plotly
 appliedAI
 init
 pycharm
-tox
