@@ -1,7 +1,7 @@
 {
-  "project_name": "test",
-  "author": "carlo",
-  "author_email": "carlo@test.de",
+  "project_name": "",
+  "author": "",
+  "author_email": "",
   "package_name": "{{cookiecutter.project_name}}",
   "python_version": ["3.11", "3.12"],
   "project_url": "https://github.com/{{cookiecutter.author}}/{{cookiecutter.project_name}}",
@@ -9,7 +9,6 @@
   "include_readthedocs_yaml": ["N", "y"],
   "initial_version": "0.1.0",
   "_copy_without_render": [
-    "build_scripts/release-version.sh",
-    ".github/workflows/tox-addition.yaml"
+    "build_scripts/release-version.sh"
   ]
 }
