@@ -1,16 +1,10 @@
 Welcome to {{cookiecutter.project_name}}!
 =========================================
 
-Welcome to the tryal library.
+Welcome to the {{cookiecutter.project_name}} library.
 See the project's repository_  for more information.
 
-.. _repository: https://github.com/carlo/tryal
-
-.. toctree::
-   :caption: Guides and Tutorials
-   :glob:
-
-   *
+.. _repository: {{cookiecutter.project_url}}
 
 
 Indices and tables
