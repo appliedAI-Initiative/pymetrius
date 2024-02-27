@@ -8,10 +8,8 @@ auto-generation of documentation files, links for jumping directly to the correc
 Earlier versions of this template were used in several industry projects as well as for open source libraries.
 
 Build, install and tests of the library are run by default poetry tasks, the documentation is built with Jupyter-Books.
-The template includes ci/cd pipelines for github actions and a rudimentary pipeline for azure devops. 
-The pipeline will run the test suite and publish docu, badges and reports. 
-We make use of [github pages](https://pages.github.com/) through the [github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action). 
-You should configure the pages source to be the root directory of the branch gh-pages.
+The template includes ci/cd pipelines for github actions. We make use of [github pages](https://pages.github.com/) through the
+[github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action). You should configure the pages source to be the root directory of the branch gh-pages.
 
 In the documentation links to source code will be created, therefore you will be prompted to give the project's url.
 
