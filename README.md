@@ -2,7 +2,7 @@
 
 This repository contains a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template 
 that can be used for library development. The template contains several well-known "best-practices" for libraries
- (mypy, ruff, sphinx, nbsphinx, coverage, pylint etc) and also some tools 
+ (poetry, poethepoet, mypy, ruff, nbqa) and also some tools 
 inspired by projects of ours that we consider generally useful - build and release scripts,
 auto-generation of documentation files, links for jumping directly to the correct place in the source code and others.
 Earlier versions of this template were used in several industry projects as well as for open source libraries.

@@ -7,4 +7,4 @@ def hello_stranger() -> None:
     """
     hello
     """
-    print("pylint does not like empty modules")
+    print("Hello from a separate package!")
