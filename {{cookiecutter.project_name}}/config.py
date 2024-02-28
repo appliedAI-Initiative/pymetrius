@@ -38,7 +38,7 @@ class ConfigProvider(ConfigProviderBase[__Configuration]):
 _config_provider = ConfigProvider()
 
 
-def get_config(reload: bool =False) -> __Configuration:
+def get_config(reload: bool = False) -> __Configuration:
     """:param reload: if True, the configuration will be reloaded from the json files
     :return: the configuration instance
     """
