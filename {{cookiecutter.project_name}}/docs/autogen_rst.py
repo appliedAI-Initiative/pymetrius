@@ -2,7 +2,6 @@ import logging
 import os
 import shutil
 from pathlib import Path
-from typing import Optional
 
 log = logging.getLogger(os.path.basename(__file__))
 
@@ -19,7 +18,7 @@ def module_template(module_qualname: str):
 """
 
 
-def index_template(package_name: str, doc_references: Optional[list[str]] = None, text_prefix=""):
+def index_template(package_name: str, doc_references: list[str] | None = None, text_prefix=""):
     doc_references = doc_references or ""
     if doc_references:
         doc_references = "\n" + "\n".join(f"* :doc:`{ref}`" for ref in doc_references) + "\n"

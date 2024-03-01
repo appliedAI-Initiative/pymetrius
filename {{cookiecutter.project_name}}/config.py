@@ -1,5 +1,4 @@
-"""
-Contains configuration utils. In its current, default form, configuration will be read from config.json and
+"""Contains configuration utils. In its current, default form, configuration will be read from config.json and
 the git-ignored file config_local.json (you have to create it yourself if you need it) and merged. The config_local.json
 is a good place to keep access keys and other secrets.
 
@@ -39,9 +38,8 @@ class ConfigProvider(ConfigProviderBase[__Configuration]):
 _config_provider = ConfigProvider()
 
 
-def get_config(reload=False) -> __Configuration:
-    """
-    :param reload: if True, the configuration will be reloaded from the json files
+def get_config(reload: bool = False) -> __Configuration:
+    """:param reload: if True, the configuration will be reloaded from the json files
     :return: the configuration instance
     """
     return _config_provider.get_config(reload=reload)

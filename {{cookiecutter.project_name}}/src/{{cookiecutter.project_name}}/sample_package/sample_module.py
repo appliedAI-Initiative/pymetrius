@@ -1,10 +1,6 @@
-"""
-Module in a separate package
-"""
+"""Module in a separate package."""
 
 
 def hello_stranger() -> None:
-    """
-    hello
-    """
+    """Hello."""
     print("Hello from a separate package!")
