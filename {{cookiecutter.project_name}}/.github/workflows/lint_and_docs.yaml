@@ -8,17 +8,17 @@ jobs:
     steps:
       - name: Cancel previous run
         uses: styfle/cancel-workflow-action@0.11.0
-        {% raw -%}
+      {% raw -%}
         with:
           access_token: ${{ github.token }}
-        {%- endraw %}
+      {%- endraw %}
       - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: {{cookiecutter.python_version}}
+      {% raw -%}
       # use poetry and cache installed packages, see https://github.com/marketplace/actions/python-poetry-action
-        {% raw -%}
       - name: Install poetry
         uses: abatilo/actions-poetry@v2
       - name: Setup a local virtual environment (if no poetry.toml file)
@@ -53,4 +53,4 @@ jobs:
           TARGET_FOLDER: .
           CLEAN: true
           SINGLE_COMMIT: true
-        {%- endraw %}
+      {%- endraw %}
