@@ -5,6 +5,9 @@ on: [push, pull_request]
 jobs:
   check:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      pages: write
     steps:
       - name: Cancel previous run
         uses: styfle/cancel-workflow-action@0.11.0
@@ -39,18 +42,11 @@ jobs:
         run: poetry run poe type-check
       - name: Docs
         run: poetry run poe doc-build
-      - name: Prepare Pages
-        if: github.ref == 'refs/heads/main'
-        run: |
-          mv docs/_build/* public/
-      - name: Deploy Pages
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        if: github.ref == 'refs/heads/main'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: public
-          TARGET_FOLDER: .
-          CLEAN: true
-          SINGLE_COMMIT: true
+          path: "docs/_build"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
       {%- endraw %}
