@@ -1,5 +1,5 @@
 Contributing to {{cookiecutter.project_name}}
-========================
+=============================================
 
 
 Install Develop Version
