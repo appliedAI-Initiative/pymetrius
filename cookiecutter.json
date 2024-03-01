@@ -8,7 +8,5 @@
   "include_accsr_configuration_utils": ["N", "y"],
   "include_readthedocs_yaml": ["N", "y"],
   "initial_version": "0.1.0",
-  "_copy_without_render": [
-    "build_scripts/release-version.sh"
-  ]
+  "_copy_without_render": []
 }
