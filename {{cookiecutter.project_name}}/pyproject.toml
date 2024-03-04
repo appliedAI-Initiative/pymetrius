@@ -123,7 +123,7 @@ max-complexity = 20
 [tool.poetry_bumpversion.file."{{cookiecutter.project_name}}/__init__.py"]
 
 [tool.poetry-sort]
-move-optionals-to-bottom = trueMichael Panchenko
+move-optionals-to-bottom = true
 
 [tool.poe.env]
 PYDEVD_DISABLE_FILE_VALIDATION="1"
