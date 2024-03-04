@@ -13,10 +13,12 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: {{cookiecutter.python_version}}
-      - name: Install dependencies
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2
+      - name: Setup a local virtual environment (if no poetry.toml file)
         run: |
-          python -m pip install --upgrade pip
-          pip install setuptools wheel twine
+          poetry config virtualenvs.create true --local
+          poetry config virtualenvs.in-project true --local
       - name: Build and publish
         env:
           {% raw -%}
