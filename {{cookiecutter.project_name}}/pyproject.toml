@@ -21,8 +21,6 @@ python = "^3.11"
 accsr = "^0.4.6"
 pandas = "^2.2.1"
 plotly = "^5.19.0"
-pytest = "^8.0.2"
-pytest-lazy-fixtures = "^1.0.5"
 
 [tool.poetry.group.dev]
 optional = true
@@ -37,8 +35,9 @@ nbqa = "^1.7.1"
 nbstripout = "^0.6.1"
 poethepoet = "^0.20.0"
 pre-commit = "^3.3.3"
-pytest = "*"
+pytest = "^8.0.2"
 pytest-cov = "*"
+pytest-lazy-fixtures = "^1.0.5"
 ruff = "^0.0.285"
 sphinx = "^7"
 sphinx-book-theme = "^1.0.1"
@@ -124,7 +123,7 @@ max-complexity = 20
 [tool.poetry_bumpversion.file."{{cookiecutter.project_name}}/__init__.py"]
 
 [tool.poetry-sort]
-move-optionals-to-bottom = true
+move-optionals-to-bottom = trueMichael Panchenko
 
 [tool.poe.env]
 PYDEVD_DISABLE_FILE_VALIDATION="1"
