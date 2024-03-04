@@ -1,4 +1,4 @@
-name: PEP8, Types and Docs Check
+name: Linting, Types and Docs Check
 
 on: [push, pull_request]
 

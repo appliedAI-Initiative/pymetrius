@@ -1,4 +1,4 @@
-name: Ubuntu
+name: Tests on Ubuntu
 
 on: [push, pull_request]
 
@@ -8,7 +8,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'ci skip')"
     strategy:
       matrix:
-        python-version: [{{cookiecutter.python_version}}]
+        python-version: ["{{cookiecutter.python_version}}"]
     {% raw -%}
     steps:
       - name: Cancel previous run
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "${{ matrix.python-version }}"
       # use poetry and cache installed packages, see https://github.com/marketplace/actions/python-poetry-action
       - name: Install poetry
         uses: abatilo/actions-poetry@v2
