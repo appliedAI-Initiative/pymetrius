@@ -31,7 +31,7 @@ The template supports python 3.11 and higher. For a smooth project generation yo
 Call
 
 ```shell script
-cookiecutter https://github.com/appliedAI-Initiative/python_library_template -o path/to/directory
+cookiecutter https://github.com/appliedAI-Initiative/pymetrius -o path/to/directory
 ```
 
 and walk through the questions. You can also clone this repository, adjust the template and call cookiecutter on
@@ -47,6 +47,10 @@ poetry install --with dev
 poe format
 git add . && git commit -m "Initial commit from pymetrius"
 ```
+
+Note: if you want to use `sphinx-spelling`, as is configured by default in the `poe` tasks, you may need to install the `enchant` library,
+see [installation instructions](https://pyenchant.github.io/pyenchant/install.html#installing-the-enchant-c-library). Otherwise, you
+can just remove the spellcheck from the tasks.
 
 Push to your branch and enjoy the fully setup pipelines and documentation!
 
