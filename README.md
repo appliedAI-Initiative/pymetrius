@@ -12,7 +12,7 @@ The template includes CI/CD pipelines based on github actions. The documentation
 
 In the documentation links to source code will be created, therefore you will be prompted to give the project's url.
 
-See the resulting repository's [contributing guidelines]({{cookiecutter.project_name}}/docs/04_contributing/04_contributing.rst) 
+See the resulting repository's [contributing guidelines](docs/04_contributing/04_contributing.rst) 
 for further details. Some examples for projects following the general style of the template are [tianshou](https://github.com/thu-ml/tianshou)
 and [armscan_env](https://github.com/appliedAI-Initiative/armscan_env/)
 

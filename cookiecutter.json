@@ -2,6 +2,7 @@
   "project_name": "",
   "author": "",
   "author_email": "",
+  "github_username": "{{cookiecutter.author}}",
   "package_name": "{{cookiecutter.project_name}}",
   "python_version": ["3.11", "3.12"],
   "project_url": "https://github.com/{{cookiecutter.author}}/{{cookiecutter.project_name}}",

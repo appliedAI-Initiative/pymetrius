@@ -105,8 +105,8 @@ sphinx:
     suppress_warnings: ["mystnb.unknown_mime_type"]  # needed for plotly rendering
     autodoc_show_sourcelink: True
     add_module_names: False
-    github_username: {{cookiecutter.author}}
-    github_repository: {{cookiecutter.project_name}}
+    github_username: {{cookiecutter.github_username}}
+    github_repository: {{cookiecutter.project_url}}
     python_use_unqualified_type_names: True
     nb_mime_priority_overrides: [
       [ 'html', 'application/vnd.jupyter.widget-view+json', 10 ],

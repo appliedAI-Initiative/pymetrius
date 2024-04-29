@@ -1,4 +1,4 @@
-from {{cookiecutter.project_name}}.sample_module import SampleClass
+from {{cookiecutter.package_name}}.sample_module import SampleClass
 
 
 # the suggested naming convention for unit tests is test_method_name_testDescriptionInCamelCase

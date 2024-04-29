@@ -1,4 +1,4 @@
-from {{cookiecutter.project_name}}.sample_module import SampleClass
+from {{cookiecutter.package_name}}.sample_module import SampleClass
 
 if __name__ == "__main__":
     print(SampleClass().sample_method("{{cookiecutter.author}}"))

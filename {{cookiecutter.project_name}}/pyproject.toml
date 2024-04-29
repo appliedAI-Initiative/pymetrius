@@ -120,7 +120,7 @@ max-complexity = 20
 "docs/**" = ["D103"]
 "examples/**" = ["D103"]
 
-[tool.poetry_bumpversion.file."{{cookiecutter.project_name}}/__init__.py"]
+[tool.poetry_bumpversion.file."{{cookiecutter.package_name}}/__init__.py"]
 
 [tool.poetry-sort]
 move-optionals-to-bottom = true

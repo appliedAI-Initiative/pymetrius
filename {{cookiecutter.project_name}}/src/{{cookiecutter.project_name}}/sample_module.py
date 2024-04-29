@@ -13,7 +13,7 @@ class SampleClass:
         self.param = param
 
     def sample_method(self, name: str) -> str:
-        """>>> from {{cookiecutter.project_name}}.sample_module import SampleClass
+        """>>> from {{cookiecutter.package_name}}.sample_module import SampleClass
         >>>
         >>> greeter = SampleClass()
         >>> greeter.sample_method("{{cookiecutter.author}}")

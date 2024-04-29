@@ -77,7 +77,7 @@ Documentation Generation Test
 
 We have the following three documentation tests:
 
-1. pydocstyle (as part of ruff): test all docstring under ``{{cookiecutter.project_name}}/``;
+1. pydocstyle (as part of ruff): test all docstrings;
 
 2. doc8 (as part of ruff): test ReStructuredText format;
 
