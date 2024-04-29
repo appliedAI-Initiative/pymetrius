@@ -25,7 +25,7 @@ if "{{cookiecutter.include_readthedocs_yaml}}".lower() != "y":
 if "{{cookiecutter.include_accsr_configuration_utils}}".lower() != "y":
     remove("config.py")
     remove("config.json")
-    remove("docs/02_notebooks/config_example.ipynb")
+    remove("docs/02_notebooks/02_config_example.ipynb")
     remove("data")
     delete_line_in_file("pyproject.toml", "accsr")
     delete_line_in_file(".gitignore", "config_local.json")
