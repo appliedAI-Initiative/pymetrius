@@ -145,7 +145,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     docs_root = Path(__file__).parent
     make_rst(
-        docs_root / ".." / "src" / "{{cookiecutter.project_name}}",
+        docs_root / ".." / "src" / "{{cookiecutter.package_name}}",
         docs_root / "03_api",
         clean=True,
     )
