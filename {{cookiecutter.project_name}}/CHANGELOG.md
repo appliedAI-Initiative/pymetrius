@@ -6,5 +6,5 @@
 
 ### Development:
 
-- Initial setup by python-library-template
+- Initial setup by pymetrius
 
