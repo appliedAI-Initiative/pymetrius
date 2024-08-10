@@ -4,15 +4,16 @@ Welcome to the {{cookiecutter.project_name}} library!
 
 ## Getting Started
 
-Clone the repository and run
+You can have a local poetry or docker-interpeter based setup. The repository is also 
+configured to seamlessly working within a GitHub Codespace. See the instructions
+for the various setup scenarios below.
 
-```shell
-git submodule update --init --recursive
-```
+Independently of how the setup was done, the virtual environment can be activated with
+`poetry shell` and the various tasks like formatting, testing, and documentation building
+can be executed using `poe`. For example, `poe format` will format the code, including the 
+notebooks. Just run `poe` to see the available commands.
 
-to also pull the git submodules.
-
-### Python setup
+### Python (poetry) setup
 
 You can install the dependencies with
 
