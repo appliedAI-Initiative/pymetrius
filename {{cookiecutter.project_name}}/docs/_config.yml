@@ -102,6 +102,10 @@ sphinx:
   recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
     autodoc_typehints_format: "short"
+    autodoc_member_order: "bysource"
+    autoclass_content: "both"
+    autodoc_default_options:
+      show-inheritance: True
     suppress_warnings: ["mystnb.unknown_mime_type"]  # needed for plotly rendering
     autodoc_show_sourcelink: True
     add_module_names: False
