@@ -111,19 +111,6 @@ def update_pyproject_toml():
                     "*" if version == "*" else f"^{version}"
                 )
 
-        # Add poetry-specific tool tasks
-        pyproject["tool"]["poe"]["tasks"][
-            "_poetry_install_sort_plugin"
-        ] = "poetry self add poetry-plugin-sort"
-        pyproject["tool"]["poe"]["tasks"]["_poetry_sort"] = "poetry sort"
-        pyproject["tool"]["poe"]["tasks"]["format"] = [
-            "_ruff_format",
-            "_ruff_format_nb",
-            "_black_format",
-            "_poetry_install_sort_plugin",
-            "_poetry_sort",
-        ]
-
     elif package_manager == "uv":
         # UV uses standard project metadata
 

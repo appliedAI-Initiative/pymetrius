@@ -172,9 +172,11 @@ _ruff_check_nb = "nbqa ruff check docs"
 _black_format = "black ."
 _ruff_format = "ruff check --fix ."
 _ruff_format_nb = "nbqa ruff --fix docs"
-lint = ["_black_check", "_ruff_check", "_ruff_check_nb"]
+_toml_sort = "toml-sort pyproject.toml -o pyproject.toml"
+_toml_sort_check = "toml-sort --check pyproject.toml"
+lint = ["_black_check", "_ruff_check", "_ruff_check_nb", "_toml_sort_check"]
 clean-nbs = "python docs/nbstripout.py"
-format = ["_ruff_format", "_ruff_format_nb", "_black_format"]
+format = ["_ruff_format", "_ruff_format_nb", "_black_format", "_toml_sort"]
 _autogen_rst = "python docs/autogen_rst.py"
 _sphinx_build = "sphinx-build -W -b html docs docs/_build"
 _jb_generate_toc = "python docs/create_toc.py"
@@ -189,7 +191,4 @@ type-check = ["_mypy", "_mypy_nb"]
 
 {% if cookiecutter.package_manager == "poetry" %}
 [tool.poetry_bumpversion.file."{{cookiecutter.package_name}}/__init__.py"]
-
-[tool.poetry-sort]
-move-optionals-to-bottom = true
 {% endif %}
