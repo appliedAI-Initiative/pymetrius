@@ -10,7 +10,7 @@
     "pixi", 
     "poetry"
   ],
-  "project_url": "https://github.com/{{cookiecutter.author}}/{{cookiecutter.project_name}}",
+  "project_url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_name}}",
   "include_accsr_configuration_utils": ["N", "y"],
   "include_readthedocs_yaml": ["N", "y"],
   "initial_version": "0.1.0",
