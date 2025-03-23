@@ -4,22 +4,27 @@ Welcome to the {{cookiecutter.project_name}} library!
 
 ## Getting Started
 
-You can have a local poetry or docker-interpeter based setup. The repository is also 
+You can have a local {{cookiecutter.package_manager}} or docker-interpeter based setup. The repository is also 
 configured to seamlessly working within a GitHub Codespace. See the instructions
 for the various setup scenarios below.
 
 Independently of how the setup was done, the virtual environment can be activated with
-`poetry shell` and the various tasks like formatting, testing, and documentation building
+{% if cookiecutter.package_manager == 'poetry' %}`poetry shell`{% elif cookiecutter.package_manager == 'pixi' %}`pixi shell`{% elif cookiecutter.package_manager == 'uv' %}`source .venv/bin/activate` (after creating it with uv){% endif %} and the various tasks like formatting, testing, and documentation building
 can be executed using `poe`. For example, `poe format` will format the code, including the 
 notebooks. Just run `poe` to see the available commands.
 
-### Python (poetry) setup
+### Python ({{cookiecutter.package_manager}}) setup
 
 You can install the dependencies with
 
-```shell
+{% if cookiecutter.package_manager == 'poetry' %}```shell
 poetry install --with dev
-```
+```{% elif cookiecutter.package_manager == 'pixi' %}```shell
+pixi install
+```{% elif cookiecutter.package_manager == 'uv' %}```shell
+uv pip install -e ".[dev]"
+source .venv/bin/activate
+```{% endif %}
 
 ### Docker setup
 

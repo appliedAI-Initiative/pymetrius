@@ -20,23 +20,39 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "${{ matrix.python-version }}"
-      # use poetry and cache installed packages, see https://github.com/marketplace/actions/python-poetry-action
-      - name: Install poetry
-        uses: abatilo/actions-poetry@v2
-      - name: Setup a local virtual environment (if no poetry.toml file)
-        run: |
-          poetry config virtualenvs.create true --local
-          poetry config virtualenvs.in-project true --local
-      - uses: actions/cache@v3
-        name: Define a cache for the virtual environment based on the dependencies lock file
+    {%- endraw %}
+
+      # Include the appropriate package manager steps based on the selection
+      {% if cookiecutter.package_manager == "poetry" %}
+      - name: Setup and install dependencies with Poetry
+        uses: ./.github/workflows/common_steps.yml
         with:
-          path: ./.venv
-          key: venv-${{ hashFiles('poetry.lock') }}
-      - name: Install the project dependencies
-        run: |
-          poetry install --with dev
+          steps: poetry-setup
+      {% raw -%}
       - name: Test with pytest
         run: poetry run poe test
+      {%- endraw %}
+      {% elif cookiecutter.package_manager == "uv" %}
+      - name: Setup and install dependencies with UV
+        uses: ./.github/workflows/common_steps.yml
+        with:
+          steps: uv-setup
+      {% raw -%}
+      - name: Test with pytest
+        run: uv run poe test
+      {%- endraw %}
+      {% elif cookiecutter.package_manager == "pixi" %}
+      - name: Setup and install dependencies with Pixi
+        uses: ./.github/workflows/common_steps.yml
+        with:
+          steps: pixi-setup
+      {% raw -%}
+      - name: Test with pytest
+        run: pixi run poe test
+      {%- endraw %}
+      {% endif %}
+
+      {% raw -%}
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:

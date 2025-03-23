@@ -2,7 +2,7 @@
 
 This repository contains a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template 
 that can be used for library development. The template contains several well-known "best-practices" for libraries
- (poetry, poethepoet, mypy, ruff, nbqa) and also some tools 
+ (configurable package managers [`uv`, `pixi`, `poetry`], `poethepoet`, `mypy`, `ruff`, `nbqa`) and also some tools 
 inspired by projects of ours that we consider generally useful - build and release scripts,
 auto-generation of documentation files, and others.
 Earlier versions of this template were used in several industry projects as well as for open source libraries.
@@ -13,7 +13,7 @@ The template includes CI/CD pipelines based on github actions. The documentation
 In the documentation links to source code will be created, therefore you will be prompted to give the project's url.
 
 See the resulting repository's [contributing guidelines](docs/04_contributing/04_contributing.rst) 
-for further details. Some examples for projects following the general style of the template are [tianshou](https://github.com/thu-ml/tianshou)
+for further details. Some examples for projects from this template (with poetry) are [tianshou](https://github.com/thu-ml/tianshou)
 and [armscan_env](https://github.com/appliedAI-Initiative/armscan_env/)
 
 # Usage
@@ -23,7 +23,9 @@ and [armscan_env](https://github.com/appliedAI-Initiative/armscan_env/)
 The template supports python 3.11 and higher. For a smooth project generation you need to have
 
 1) Cookiecutter. Install it e.g. with `pip install cookiecutter`
-2) Poetry (for using the new repository)
+2) You will need `tomli` and `tomli-w`. Install them e.g. with `pip install tomli tomli-w`.
+   If you have cloned this repo, you can also install them with `pip install -r requirements.txt`
+3) The selected package manager for your project (`uv`, `pixi`, or `poetry`) (not needed for the templating itself)
 
 
 ## Creating a new project
@@ -42,8 +44,8 @@ e.g.,
 
 ```shell script
 git init
-poetry shell
-poetry install --with dev
+# Setup depends on your chosen package manager (uv, pixi, or poetry)
+# The generated README will provide specific instructions
 poe format
 git add . && git commit -m "Initial commit from pymetrius"
 ```

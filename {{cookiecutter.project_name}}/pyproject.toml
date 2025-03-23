@@ -1,54 +1,15 @@
+{% if cookiecutter.package_manager == "poetry" %}
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+{% else %}
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+{% endif %}
 
-[tool.poetry]
-name = "{{cookiecutter.project_name}}"
-packages = [{ include = "{{cookiecutter.package_name}}", from = "src" }]
-version = "{{cookiecutter.initial_version}}"
-description = ""
-authors = ["{{cookiecutter.author}} <{{cookiecutter.author_email}}>"]
-license = "MIT"
-readme = "README.md"
-homepage = "{{cookiecutter.project_url}}"
-classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.11",
-]
-exclude = ["test/*", "examples/*", "docs/*"]
-
-[tool.poetry.dependencies]
-python = "^3.11"
-accsr = "^0.4.6"
-pandas = "^2.2.1"
-plotly = "^5.19.0"
-
-[tool.poetry.group.dev]
-optional = true
-[tool.poetry.group.dev.dependencies]
-black = { version = "^23.7.0", extras = ["jupyter"] }
-docutils = "0.20.1"
-jinja2 = "*"
-jupyter = "^1.0.0"
-jupyter-book = "^1.0.0"
-mypy = "^1.4.1"
-nbqa = "^1.7.1"
-nbstripout = "^0.6.1"
-poethepoet = "^0.20.0"
-pre-commit = "^3.3.3"
-pytest = "^8.0.2"
-pytest-cov = "*"
-pytest-lazy-fixtures = "^1.0.5"
-ruff = "^0.0.285"
-sphinx = "^7"
-sphinx-book-theme = "^1.0.1"
-sphinx-comments = "^0.0.3"
-sphinx-copybutton = "^0.5.2"
-sphinx-jupyterbook-latex = "^1.0.0"
-sphinx-togglebutton = "^0.3.2"
-sphinx-toolbox = "^3.5.0"
-sphinxcontrib-bibtex = "*"
-sphinxcontrib-spelling = "^8.0.0"
+# Project configuration and dependencies will be inserted here
+# by the post-generation hook based on the selected package manager
 
 [tool.mypy]
 allow_redefinition = true
@@ -180,6 +141,8 @@ extend-fixable = [
 	"B905", # bugbear
 	"W291", # trailing whitespace
 ]
+[tool.ruff.lint.mccabe]
+max-complexity = 20
 
 
 [tool.ruff.lint.per-file-ignores]
@@ -198,15 +161,6 @@ skip-magic-trailing-comma = false
 docstring-code-format = true
 
 
-[tool.ruff.mccabe]
-max-complexity = 20
-
-
-[tool.poetry_bumpversion.file."{{cookiecutter.package_name}}/__init__.py"]
-
-[tool.poetry-sort]
-move-optionals-to-bottom = true
-
 [tool.poe.env]
 PYDEVD_DISABLE_FILE_VALIDATION="1"
 # keep relevant parts in sync with pre-commit
@@ -214,15 +168,13 @@ PYDEVD_DISABLE_FILE_VALIDATION="1"
 test = "pytest test --cov={{cookiecutter.package_name}} --cov-report=xml --cov-report=term-missing --durations=0 -v --color=yes"
 _black_check = "black --check ."
 _ruff_check = "ruff check ."
-_ruff_check_nb = "nbqa ruff docs"
+_ruff_check_nb = "nbqa ruff check docs"
 _black_format = "black ."
 _ruff_format = "ruff --fix ."
-_ruff_format_nb = "nbqa ruff --fix docs"
+_ruff_format_nb = "nbqa ruff check --fix docs"
 lint = ["_black_check", "_ruff_check", "_ruff_check_nb"]
-_poetry_install_sort_plugin = "poetry self add poetry-plugin-sort"
-_poetry_sort = "poetry sort"
 clean-nbs = "python docs/nbstripout.py"
-format = ["_ruff_format", "_ruff_format_nb", "_black_format", "_poetry_install_sort_plugin", "_poetry_sort"]
+format = ["_ruff_format", "_ruff_format_nb", "_black_format"]
 _autogen_rst = "python docs/autogen_rst.py"
 _sphinx_build = "sphinx-build -W -b html docs docs/_build"
 _jb_generate_toc = "python docs/create_toc.py"
@@ -234,3 +186,10 @@ doc-build = ["doc-generate-files", "doc-spellcheck", "_sphinx_build"]
 _mypy = "mypy src"
 _mypy_nb = "nbqa mypy docs"
 type-check = ["_mypy", "_mypy_nb"]
+
+{% if cookiecutter.package_manager == "poetry" %}
+[tool.poetry_bumpversion.file."{{cookiecutter.package_name}}/__init__.py"]
+
+[tool.poetry-sort]
+move-optionals-to-bottom = true
+{% endif %}
