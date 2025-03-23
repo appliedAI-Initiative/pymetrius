@@ -22,6 +22,7 @@ poetry install --with dev
 ```{% elif cookiecutter.package_manager == 'pixi' %}```shell
 pixi install
 ```{% elif cookiecutter.package_manager == 'uv' %}```shell
+uv venv
 uv pip install -e ".[dev]"
 source .venv/bin/activate
 ```{% endif %}

@@ -5,11 +5,11 @@ description = ""
 authors = ["{{cookiecutter.author}} <{{cookiecutter.author_email}}>"]
 license = "MIT"
 readme = "README.md"
-python_version = "3.11"
+python_version = "{{cookiecutter.python_version}}"
 homepage = "{{cookiecutter.project_url}}"
 classifiers = [
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: {{cookiecutter.python_version}}",
 ]
 package_dir = { include = "{{cookiecutter.package_name}}", from = "src" }
 exclude = ["test/*", "examples/*", "docs/*"] 

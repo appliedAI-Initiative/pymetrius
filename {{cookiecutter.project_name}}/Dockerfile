@@ -59,6 +59,7 @@ WORKDIR /workspaces/{{cookiecutter.project_name}}
 COPY pyproject.toml /workspaces/{{cookiecutter.project_name}}/
 
 # Create virtual environment and install dependencies
+RUN uv venv
 RUN uv pip install -e ".[dev]"
 ENV PATH="/workspaces/{{cookiecutter.project_name}}/.venv/bin:${PATH}"
 
