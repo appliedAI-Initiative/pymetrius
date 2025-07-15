@@ -78,11 +78,11 @@ select = [
 ignore = [
 	"RUF002", # hyphen checks
 	"RUF005", # unpacking over concatenation (no point in that rule IMO)
-	"SIM118", # Needed b/c iter(batch) != iter(batch.keys()). See https://github.com/thu-ml/tianshou/issues/922
 	"SIM108", # if - else is fine
 	"E501",   # line too long. black does a good enough job
 	"E741",   # variable names like "l". this isn't a huge problem
 	"B008",   # do not perform function calls in argument defaults. we do this sometimes
+	"B009",   # don't replace getattr with attr access
 	"B011",   # assert false. we don't use python -O
 	"B028",   # we don't need explicit stacklevel for warnings
 	"D100",
@@ -128,7 +128,20 @@ ignore = [
 	"F403", "F405",    # star imports
 	"C401",    # generators
 	"C901",    # complexity analysis
-
+	"RET504",  # assignment before return can be useful for debugging
+	"SIM103",   # forbids multiple returns
+	"SIM110",   # requires use of any(...) instead of for-loop
+	"G001",     # forbids str.format in log statements
+	"E722",     # forbids unspecific except clause
+	"SIM105",   # forbids empty/general except clause
+	"SIM113",   # wants to enforce use of enumerate
+	"E712",     # forbids equality comparison with True/False
+	"UP007",    # forbids some uses of Union
+	"TID252",   # forbids relative imports
+	"B904",     # forces use of raise from other_exception
+	"RUF012",   # forbids mutable attributes as ClassVar
+	"SIM117",   # forbids nested with statements
+	"C400",     # wants to unnecessarily force use of list comprehension
 ]
 unfixable = [
 	"F841", # unused variable. ruff keeps the call, but mostly we want to get rid of it all
@@ -165,7 +178,7 @@ docstring-code-format = true
 PYDEVD_DISABLE_FILE_VALIDATION="1"
 # keep relevant parts in sync with pre-commit
 [tool.poe.tasks]  # https://github.com/nat-n/poethepoet
-test = "pytest test --cov={{cookiecutter.package_name}} --cov-report=xml --cov-report=term-missing --durations=0 -v --color=yes"
+test = "pytest tests --cov={{cookiecutter.package_name}} --cov-report=xml --cov-report=term-missing --durations=0 -v --color=yes"
 _black_check = "black --check ."
 _ruff_check = "ruff check ."
 _ruff_check_nb = "nbqa ruff check docs"
